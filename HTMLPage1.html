@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Заявка на тур / Турға өтінім / Tour request • ВКО/ШҚО/East Kazakhstan</title>
+
+    <!-- Ваш основной CSS -->
+    <link rel="stylesheet" href="css_1.css">
+</head>
+
+<body>
+    <section class="apply-page">
+        <div class="apply-wrap">
+
+            <div class="apply-head">
+                <h1 class="apply-title">Заявка на тур по ВКО / ШҚО турына өтінім / Tour request for East Kazakhstan</h1>
+                <p class="apply-sub">Заполните форму — мы подберём маршрут и свяжемся с вами. / Форманы толтырыңыз — біз маршрут ұсынып, сізбен байланысамыз. / Fill in the form — we’ll suggest a route and contact you.</p>
+            </div>
+
+            <form class="apply-form" id="applyForm" novalidate>
+                <div class="apply-grid">
+
+                    <div class="apply-field">
+                        <label for="fullName">ФИО * / Аты-жөні * / Full name *</label>
+                        <input id="fullName"
+                               name="fullName"
+                               type="text"
+                               placeholder="Напр.: Тамурдай Есиммов / Мыс.: Тамурдай Есиммов / e.g., Tamurday Yesimmov"
+                               required
+                               autocomplete="name" />
+                        <div class="apply-error" data-err="fullName"></div>
+                    </div>
+
+                    <div class="apply-field">
+                        <label for="phone">Номер телефона * / Телефон нөмірі * / Phone number *</label>
+                        <input id="phone"
+                               name="phone"
+                               type="tel"
+                               placeholder="+7 777 000 00 00"
+                               required
+                               autocomplete="tel" />
+                        <div class="apply-hint">Формат: +7… или 8… (не менее 10 цифр) / Пішімі: +7… немесе 8… (кемі 10 сан) / Format: +7… or 8… (at least 10 digits)</div>
+                        <div class="apply-error" data-err="phone"></div>
+                    </div>
+
+                    <div class="apply-field">
+                        <label for="startPoint">Место старта * / Бастау орны * / Start point *</label>
+                        <input id="startPoint"
+                               name="startPoint"
+                               type="text"
+                               list="vkoPoints"
+                               placeholder="Напр.: Өскемен / Мыс.: Өскемен / e.g., Oskemen"
+                               required />
+                        <div class="apply-error" data-err="startPoint"></div>
+                    </div>
+
+                    <div class="apply-field">
+                        <label for="endPoint">Куда хотите поехать * / Қайда барғыңыз келеді * / Destination *</label>
+                        <input id="endPoint"
+                               name="endPoint"
+                               type="text"
+                               list="vkoPlaces"
+                               placeholder="Напр.: Маркаколь / Мыс.: Марқакөл / e.g., Markakol"
+                               required />
+                        <div class="apply-error" data-err="endPoint"></div>
+                    </div>
+
+                    <div class="apply-field">
+                        <label for="guide">Гид * / Гид * / Guide *</label>
+                        <select id="guide" name="guide" required>
+                            <option value="" selected disabled>Выберите гида / Гидті таңдаңыз / Choose a guide</option>
+
+                            <option value="Кирилл">Кирилл (Алтай, горы) / Кирилл (Алтай, таулар) / Kirill (Altai, mountains)</option>
+                            <option value="Амир">Амир (Маркаколь, озёра) / Амир (Марқакөл, көлдер) / Amir (Markakol, lakes)</option>
+                            <option value="Аружан">Аружан (семейные туры) / Аружан (отбасылық турлар) / Aruzhan (family tours)</option>
+                            <option value="Жанарыс">Жанарыс (треккинг) / Жанарыс (трекинг) / Zhanarys (trekking)</option>
+                            <option value="Алия">Алия (фото-туры) / Алия (фото-турлар) / Aliya (photo tours)</option>
+
+                            <option value="Подбор">Подберите мне гида / Маған гид таңдаңыз / Pick a guide for me</option>
+                        </select>
+
+                        <div class="apply-error" data-err="guide"></div>
+                    </div>
+
+                    <div class="apply-field">
+                        <label for="date">Дата поездки * / Сапар күні * / Trip date *</label>
+                        <input id="date" name="date" type="date" required />
+                        <div class="apply-error" data-err="date"></div>
+                    </div>
+
+                    <div class="apply-field">
+                        <label for="people">Количество людей * / Адам саны * / Number of people *</label>
+                        <input id="people"
+                               name="people"
+                               type="number"
+                               min="1"
+                               step="1"
+                               value="1"
+                               required />
+                        <div class="apply-error" data-err="people"></div>
+                    </div>
+
+                    <div class="apply-field apply-field-wide">
+                        <label for="comment">Комментарий * / Пікір * / Comment *</label>
+                        <textarea id="comment"
+                                  name="comment"
+                                  rows="5"
+                                  placeholder="Уровень сложности, предпочтения, транспорт и т.д. / Қиындық деңгейі, талғам, көлік т.б. / Difficulty, preferences, transport, etc."
+                                  required></textarea>
+                        <div class="apply-error" data-err="comment"></div>
+                    </div>
+
+                </div>
+
+                <div class="apply-actions">
+                    <button class="send-btn" type="submit">Отправить заявку / Өтінімді жіберу / Submit</button>
+                    <button class="apply-reset" type="reset">Очистить / Тазалау / Clear</button>
+                </div>
+
+                <!-- Сообщение об успехе -->
+                <div class="apply-success" id="applySuccess" role="status" aria-live="polite"></div>
+            </form>
+
+            <!-- datalist подсказки -->
+            <datalist id="vkoPoints">
+                <option value="Өскемен / Усть-Каменогорск"></option>
+                <option value="Риддер / Риддер / Ridder"></option>
+                <option value="Алтай (Зыряновск)"></option>
+                <option value="Серебрянск / Серебрянск / Serebryansk"></option>
+                <option value="Зайсан / Зайсан / Zaysan"></option>
+                <option value="Курчум / Күршім / Kurchum"></option>
+                <option value="Катон-Карагай / Катонқарағай / Katon-Karagai"></option>
+                <option value="Маркаколь / Марқакөл / Markakol"></option>
+                <option value="Шемонаиха / Шемонаиха / Shemonaikha"></option>
+                <option value="Глубокое / Глубокое / Glubokoye"></option>
+            </datalist>
+
+            <datalist id="vkoPlaces">
+                <option value="Алтай (Катон-Карагай)"></option>
+                <option value="Маркаколь / Марқакөл / Markakol"></option>
+                <option value="Бухтарминское водохранилище / Бұқтырма су қоймасы / Bukhtarma Reservoir"></option>
+                <option value="Озеро Зайсан / Зайсан көлі / Lake Zaysan"></option>
+                <option value="Ледник Белуха / Белуха мұздығы / Belukha Glacier"></option>
+                <option value="Сибинские озёра / Сібін көлдері / Sibinskie Lakes"></option>
+                <option value="Ак-Баур / Ақбауыр / Ak-Baur"></option>
+            </datalist>
+
+        </div>
+    </section>
+
+    <script>
+        // 1) Применяем тему как на главной (берём из localStorage)
+        (function applyThemeFromStorage() {
+            if (localStorage.getItem("theme") === "green") {
+                document.body.classList.add("green");
+            } else {
+                document.body.classList.remove("green");
+            }
+        })();
+
+        // 2) Валидация + сохранение в localStorage
+        const form = document.getElementById("applyForm");
+        const success = document.getElementById("applySuccess");
+
+        function setError(fieldName, message) {
+            const box = document.querySelector(`.apply-error[data-err="${fieldName}"]`);
+            if (box) box.textContent = message || "";
+        }
+
+        function onlyDigits(s) {
+            return String(s || "").replace(/\D/g, "");
+        }
+
+        function isPastDate(dateStr) {
+            if (!dateStr) return true;
+            const chosen = new Date(dateStr + "T00:00:00");
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            return chosen < today;
+        }
+
+        // Запрет выбора даты в прошлом (HTML-уровень)
+        (function setMinDate() {
+            const dateInput = document.getElementById("date");
+            if (!dateInput) return;
+            const now = new Date();
+            const yyyy = now.getFullYear();
+            const mm = String(now.getMonth() + 1).padStart(2, "0");
+            const dd = String(now.getDate()).padStart(2, "0");
+            dateInput.min = `${yyyy}-${mm}-${dd}`;
+        })();
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            success.textContent = "";
+
+            // очистить ошибки
+            ["fullName", "phone", "startPoint", "endPoint", "guide", "date", "people", "comment"]
+                .forEach(k => setError(k, ""));
+
+            const data = new FormData(form);
+            const fullName = (data.get("fullName") || "").toString().trim();
+            const phoneRaw = (data.get("phone") || "").toString().trim();
+            const startPoint = (data.get("startPoint") || "").toString().trim();
+            const endPoint = (data.get("endPoint") || "").toString().trim();
+            const guide = (data.get("guide") || "").toString().trim();
+            const date = (data.get("date") || "").toString().trim();
+            const people = (data.get("people") || "").toString().trim();
+            const comment = (data.get("comment") || "").toString().trim();
+
+            let ok = true;
+
+            if (!fullName) { setError("fullName", "Введите ФИО. / Аты-жөніңізді енгізіңіз. / Enter your full name."); ok = false; }
+
+            const phoneDigits = onlyDigits(phoneRaw);
+            if (!phoneRaw || phoneDigits.length < 10) { setError("phone", "Введите корректный номер телефона. / Дұрыс телефон нөмірін енгізіңіз. / Enter a valid phone number."); ok = false; }
+
+            if (!startPoint) { setError("startPoint", "Укажите место старта. / Бастау орнын көрсетіңіз. / Specify the start point."); ok = false; }
+            if (!endPoint) { setError("endPoint", "Укажите направление/локацию. / Бағытты/орынды көрсетіңіз. / Specify the destination/location."); ok = false; }
+
+            if (!guide) { setError("guide", "Выберите гида. / Гидті таңдаңыз. / Choose a guide."); ok = false; }
+
+            if (!date) { setError("date", "Выберите дату. / Күнді таңдаңыз. / Choose a date."); ok = false; }
+            else if (isPastDate(date)) { setError("date", "Дата не может быть в прошлом. / Күн өткен болмауы керек. / Date can’t be in the past."); ok = false; }
+
+            const nPeople = Number(people);
+            if (!Number.isFinite(nPeople) || nPeople < 1) { setError("people", "Количество людей: минимум 1. / Адам саны: кемі 1. / People: minimum 1."); ok = false; }
+
+            if (!comment) { setError("comment", "Добавьте комментарий (обязательное поле). / Пікір жазыңыз (міндетті). / Add a comment (required)."); ok = false; }
+
+            if (!ok) return;
+
+            const payload = {
+                id: "app_" + Date.now(),
+                createdAt: new Date().toISOString(),
+                fullName,
+                phone: phoneRaw,
+                startPoint,
+                endPoint,
+                guide,
+                date,
+                people: nPeople,
+                comment
+            };
+
+            const key = "vko_applications";
+            const list = JSON.parse(localStorage.getItem(key) || "[]");
+            list.unshift(payload);
+            localStorage.setItem(key, JSON.stringify(list));
+
+            form.reset();
+            document.getElementById("people").value = "1";
+
+            success.textContent = "Заявка отправлена и сохранена. Мы свяжемся с вами по указанному номеру. / Өтінім жіберілді және сақталды. Көрсетілген нөмірге хабарласамыз. / Request sent and saved. We’ll contact you using the provided number.";
+        });
+    </script>
+</body>
+</html>

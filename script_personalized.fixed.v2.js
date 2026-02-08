@@ -1,0 +1,617 @@
+function placeCard(title, img, text, pos = "center 35%") {
+    return `
+    <article class="place-card">
+      <div class="place-media">
+        <img class="place-photo" src="${img}" alt="${title}" style="object-position:${pos}">
+        <div class="place-media-overlay"></div>
+      </div>
+      <div class="place-body">
+        <h2 class="place-title">${title}</h2>
+        <p class="place-text">${text}</p>
+      </div>
+    </article>
+  `;
+}
+
+
+const places = [
+    // ГОРЫ И ХРЕБТЫ
+    {
+        name: "Алтай (Катон-Карагай)",
+        type: "mountains",
+        content: placeCard(
+            "Алтай (Катон-Карагай)",
+            "altai.jpeg",
+            "Алтайский горный район формирует ключевой природный бренд региона и задаёт высокий стандарт для экотуризма. Территория сочетает хвойные леса, высокогорные долины и насыщенную речную сеть, что обеспечивает разнообразие маршрутов. Для поездки рекомендуется планировать 2–4 дня, выделяя время на смотровые точки и короткие треккинги. Лучшие сезоны — конец весны, лето и ранняя осень, когда погода стабильнее и видимость максимальная. При посещении важно соблюдать режим природоохранных зон и заранее продумывать логистику из-за удалённости локаций.",
+            "center 60%"
+
+        )
+    },
+    {
+        name: "Восточный Алтай",
+        type: "mountains",
+        content: placeCard(
+            "Восточный Алтай",
+            "vostochaltai.jpg",
+            "Восточный Алтай — территория контрастов, где высокогорные участки, тайга и ледниковые формы рельефа создают выразительные панорамы. Локация подходит для активных путешествий: радиальные выходы, фототуры, наблюдение за природой. Маршруты требуют базовой физической подготовки и внимательного планирования по погоде, особенно в межсезонье. Наиболее комфортный период — июль–сентябрь, когда меньше резких перепадов температуры. Для качества поездки рекомендуется ехать с проводником или по проверенным трекам и обязательно иметь связь/навигацию.",
+            "center 60%"
+        )
+    },
+    {
+        name: "Бухтарминский хребет",
+        type: "mountains",
+        content: placeCard(
+            "Бухтарминский хребет",
+            "buhtarma.jpg",
+            "Бухтарминский хребет интересен протяжёнными гребнями и обзорными точками, позволяющими выстраивать маршруты разного уровня сложности. Рельеф даёт возможность комбинировать дневные переходы с остановками в долинах и у водных объектов. В деловом планировании поездки важно учитывать перепады высот и ограниченную инфраструктуру на удалённых участках. Летом и в начале осени условия наиболее прогнозируемые, что снижает риски по времени и безопасности. Оптимальная стратегия — заранее определить старт/финиш, точки воды и резервный вариант при ухудшении погоды.",
+            "center 60%"
+
+        )
+    },
+    {
+        name: "Сарымсакский хребет",
+        type: "mountains",
+        content: placeCard(
+            "Сарымсакский хребет",
+            "sarym.jpg",
+            "Сарымсакский хребет — перспективная локация для треккинга и обзорных маршрутов с акцентом на природные ландшафты. Участки хребта позволяют выбирать как короткие выходы, так и более продолжительные переходы при хорошей подготовке. Для комфортного путешествия важно заранее оценить доступность подъездов и сезонную проходимость дорог. Наилучшие окна по погоде — устойчивое лето и сухая ранняя осень, когда меньше осадков и выше видимость. При организации группы рекомендуется прописать правила безопасности и контроль времени, чтобы избежать возвращения в сумерках.",
+            "center 60%"
+
+        )
+    },
+
+    // ВОДОЁМЫ
+    {
+        name: "Бухтарминское водохранилище",
+        type: "lakes",
+        content: placeCard(
+            "Бухтарминское водохранилище",
+            "buhtarmail.jpeg",
+            "Бухтарминское водохранилище — крупный водный объект, ориентированный на отдых у воды, прогулки и сезонные активности. Береговая линия даёт широкий выбор точек: от спокойных пляжных зон до более уединённых мест. Для практичного планирования важно заранее выбрать участок с удобным подъездом и инфраструктурой, особенно в пиковые месяцы. Наиболее популярный период — июнь–август, когда вода комфортнее и доступно больше сервисов. Рекомендуется соблюдать правила навигации и пожарной безопасности, так как прибрежные зоны часто чувствительны к нагрузке.",
+            "center 60%"
+        )
+    },
+    {
+        name: "Зайсан",
+        type: "lakes",
+        content: placeCard(
+            "Озеро Зайсан",
+            "zaisan.jpg",
+            "Озеро Зайсан воспринимается как масштабное открытое пространство, где особенно ценятся горизонты и спокойные воды. Локация подходит для обзорных поездок, рыболовных туров и маршрутов с акцентом на природу степной зоны. Для надёжной организации визита важно учитывать ветровую нагрузку и быстро меняющиеся условия на воде. Лучшее время — тёплый сезон, когда дороги доступнее и больше возможностей для длительных остановок. Практичный подход — планировать точки снабжения заранее и не полагаться на случайную инфраструктуру вдали от населённых пунктов."
+        )
+    },
+    {
+        name: "Маркаколь",
+        type: "lakes",
+        content: placeCard(
+            "Маркаколь",
+            "qwerty.jpg",
+            "Маркаколь — высокогорное озеро с выраженной природной идентичностью и репутацией тихой, «неторопливой» локации. Визит сюда чаще выбирают для экологичного отдыха, наблюдения за природой и аккуратных пеших прогулок. Организационно важно закладывать запас времени на дорогу и погодные колебания, характерные для высокогорья. Оптимальный сезон — середина лета и ранняя осень, когда условия наиболее стабильные. Для сохранения качества территории рекомендуется соблюдать режим посещения и минимизировать след от пребывания, включая мусор и костровые зоны."
+        )
+    },
+   
+
+    // ЛЕСА И ТАЙГА
+    {
+        name: "Алтайские леса",
+        type: "forests",
+        content: placeCard(
+            "Алтайские леса",
+            "altai-gory.jpg",
+            "Алтайские леса — ресурсная и рекреационная зона, где основную ценность создают хвойные массивы и чистый воздух. Формат посещения обычно включает прогулочные маршруты, пикниковые зоны и природные фотосессии. Для корректной организации важно выбирать официальные тропы и места стоянок, чтобы снизить нагрузку на экосистему. Наиболее комфортный сезон — лето и начало осени, когда тропы проходимы и меньше сырости. В приоритете должны быть правила пожарной безопасности и принцип «не оставлять следов».",
+            "center 80%"
+        )
+    },
+    {
+        name: "Ленточные боры Прииртышья",
+        type: "forests",
+        content: placeCard(
+            "Ленточные боры Прииртышья",
+            "priirtysh.jpg",
+            "Ленточные боры — редкий ландшафтный тип, где сосновые леса формируют вытянутые «ленты» на песчаных грунтах. Локация удобна для коротких выездов, прогулок и семейного отдыха без сложной физической нагрузки. С точки зрения сервиса важно заранее определить точки входа в лес и места с безопасной парковкой. Лучшее время — сухие месяцы, когда тропы менее размыты и комфортнее для пеших маршрутов. Ключевой стандарт посещения — строгий контроль огня и аккуратное отношение к подлеску.",
+            "center 15%"
+        )
+    },
+    {
+        name: "Сибирская тайга",
+        type: "forests",
+        content: placeCard(
+            "Сибирская тайга",
+            "Vostochnaya-sibir.jpg",
+            "Сибирская тайга — природная среда с высокой экологической ценностью и плотным хвойным покровом. Здесь востребованы спокойные форматы туризма: наблюдение за природой, тихие прогулки и фотомаршруты. Для безопасного визита требуется дисциплина по навигации, так как однотипный ландшафт усложняет ориентирование. Оптимально планировать поездку в период устойчивой погоды и ограниченного количества осадков. Организаторам групп рекомендуется заранее фиксировать маршрут, точки связи и правила поведения при встрече с дикой фауной.",
+            "center 65%"
+        )
+        
+    },
+
+    // ПЛАТО
+    {
+        name: "Катон-Карагайское плато",
+        type: "plateaus",
+        content: placeCard(
+            "Катон-Карагайское плато",
+            "katon-plato.jpg",
+            "Катон-Карагайское плато ценится открытыми пространствами и ровными высокогорными участками, удобными для обзорных маршрутов. Локация подходит для треккинга умеренной сложности и фототуров с акцентом на панорамы. Для качественного планирования важно учитывать высоту, ветровую нагрузку и ограниченность укрытий на открытых участках. Лучшее время — устойчивое лето, когда меньше рисков по резкому похолоданию и грозам. Рекомендуется заранее согласовать логистику и иметь резерв по времени, так как погода на плато меняется быстро.",
+             "center 45%"
+
+        )
+    },
+    {
+        name: "Ульбинское плато",
+        type: "plateaus",
+        content: placeCard(
+            "Ульбинское плато",
+            "plato.jpeg",
+            "Ульбинское плато — локация со скальными формами и обзорными точками, ориентированная на короткие выезды и активные прогулки. Рельеф позволяет выстраивать маршруты на 2–6 часов без сложной экспедиционной подготовки. В организационном плане важно учитывать безопасность у обрывов и выбирать тропы с понятной разметкой. Наиболее комфортный сезон — сухая погода, когда каменистые участки менее скользкие. Для группового посещения рекомендуется заранее назначить точки сбора и контролировать темп, чтобы маршрут проходил без перегрузок."
+        )
+    },
+
+    // КАНЬОНЫ
+    {
+        name: "Тургенское ущелье",
+        type: "canyons",
+        content: placeCard(
+            "Тургенское ущелье",
+            "turgen.jpg",
+            "Тургенское ущелье — формат «маршрутного» объекта, где ключевую роль играют перепады высот и речной коридор. Посещение удобно выстраивать как однодневную программу с несколькими остановками и короткими прогулками. Для устойчивого результата важно планировать время так, чтобы не возвращаться по сумеркам и учитывать сезонную влажность троп. Наиболее комфортны тёплые месяцы без продолжительных дождей, когда проходимость выше. При посещении следует соблюдать дистанцию у скальных участков и не выходить за пределы безопасных троп."
+        )
+    },
+    {
+        name: "Чёрный каньон Иртыша",
+        type: "canyons",
+        content: placeCard(
+            "Чёрный каньон Иртыша",
+            "cherni_irtish.jpg",
+            "Чёрный каньон интересен выразительными скальными выходами и контрастом между камнем и водной линией. Локация особенно сильна для фотомаршрутов и обзорных остановок, где важна композиция и свет. Для грамотной организации необходимо заранее определить безопасные площадки и исключить подход к кромкам без контроля. Оптимально посещать в ясную погоду, когда видимость максимальна и меньше рисков по скользким участкам. Рекомендуется соблюдать аккуратный режим: не разрушать кромки, не оставлять мусор и не вытаптывать растительность на склонах."
+        )
+    },
+    {
+        name: "Аксу",
+        type: "canyons",
+        content: placeCard(
+            "Каньон Аксу",
+            "kanyon-aksu.jpg",
+            "Каньон Аксу — объект с ярко выраженной геологией и «вертикальной» архитектурой скальных стен. Он подходит для активных прогулок и маршрутов, где ценятся драматичные виды и узкие проходы. В планировании важно учитывать сезонные осадки: после дождей камни и грунт становятся менее безопасными. Лучшее время — сухие периоды с предсказуемой погодой и стабильной видимостью. Посетителям рекомендуется строго следовать по маршруту, иметь запас воды и не приближаться к потенциально осыпающимся участкам.",
+            "center 65%"
+        )
+    },
+
+    // ЛУГА И СТЕПИ
+    {
+        name: "Катон-Карагайские луга",
+        type: "steppes",
+        content: placeCard(
+            "Катон-Карагайские луга",
+            "osyl.jpeg",
+            "Катон-Карагайские луга — природная площадка с мягкими ландшафтами и высокой сезонной привлекательностью. Локация хорошо работает для спокойных прогулок, семейных маршрутов и фотосъёмки на фоне гор. Для результата важно выбирать период активного цветения и устойчивой погоды, когда луга наиболее выразительны. В организационном плане стоит учитывать отсутствие тени и необходимость защиты от солнца и ветра. Рекомендуемый стандарт поведения — не вытаптывать участки цветения и избегать движения автотранспорта вне дорог.",
+            "center 65%"
+        )
+    },
+   
+
+    // ЛЕДНИКИ
+    {
+        name: "Ледники Восточного Алтая",
+        type: "glaciers",
+        content: placeCard(
+            "Ледники Восточного Алтая",
+            "sofiyski.jpg",
+            "Ледники Восточного Алтая — стратегический природный ресурс, формирующий истоки рек и режим водоснабжения горных долин. Для туристов это прежде всего визуальный объект высокой ценности и редкий формат природного опыта. Посещение требует аккуратного подхода: безопасных маршрутов, адекватной экипировки и сопровождения при необходимости. Наиболее рационально планировать поездку в сезон устойчивой погоды, когда риск лавиноопасных и обвальных явлений ниже. Важно строго соблюдать дистанцию от ледовых трещин и не выходить на лёд без специальной подготовки."
+        )
+    },
+    {
+        name: "Ледник Белуха",
+        type: "glaciers",
+        content: placeCard(
+            "Ледник Белуха",
+            "beluha.png",
+            "Ледник Белуха — один из наиболее узнаваемых объектов высокогорной зоны и ключевой ориентир для альпийских маршрутов. Он формирует сильный визуальный эффект и ценится за «чистую» горную эстетику. Посещение требует дисциплины по безопасности, так как высокогорье предъявляет повышенные требования к погодным окнам и экипировке. Планировать поездку рекомендуется через проверенные треки и с учётом акклиматизации при длительных выходах. Приоритет — минимизация воздействия на природную среду и соблюдение инструкций проводников и служб."
+        )
+    },
+
+    // РЕКИ
+    {
+        name: "Иртыш",
+        type: "rivers",
+        content: placeCard(
+            "Иртыш",
+            "irtysh_2.jpg",
+            "Иртыш — системообразующая река региона и важный транспортно-ландшафтный коридор. Для путешественников он интересен набережными, обзорными точками и возможностями для прогулок у воды. При планировании маршрута важно учитывать сезонный уровень воды и ветровые условия на открытых участках. Лучший формат посещения — комбинировать городские точки с природными остановками выше или ниже по течению. Рекомендуется соблюдать правила безопасности у воды и выбирать официальные места для отдыха и спуска к берегу."
+        )
+    },
+    {
+        name: "Булак",
+        type: "rivers",
+        content: placeCard(
+            "Булак",
+            "bulak.jpg",
+            "Булак — типичная горная река, где ценность создают холодная вода, каменистое русло и динамичный поток. Локация подходит для коротких прогулок, остановок на маршруте и природных фотосцен. В организационном плане важно учитывать скользкие камни и быстрые изменения уровня воды после осадков. Оптимально посещать в сухую погоду, когда тропы и подходы к воде безопаснее. Рекомендуется выбирать места отдыха с устойчивым берегом и избегать переходов вброд без необходимости.",
+            "center 60%"
+        )
+    },
+    {
+        name: "Тургусун",
+        type: "rivers",
+        content: placeCard(
+            "Тургусун",
+            "tursugyn.jpg",
+            "Турсугун — речной маршрутный объект, где основную привлекательность формируют долины и прибрежные природные участки. Он хорошо вписывается в программы с переездами, когда нужны короткие «видовые» остановки. Для качественного посещения важно заранее определить подъезды и точки безопасного спуска к воде. Наиболее комфортны тёплые месяцы без затяжных дождей, когда вода менее мутная и подходы стабильнее. Рекомендуется соблюдать порядок на берегу и не оставлять мусор, чтобы сохранить природный облик локации."
+        )
+    },
+    {
+        name: "Катон",
+        type: "rivers",
+        content: placeCard(
+            "Река Катон",
+            "katon-rika.jpg",
+            "Река Катон воспринимается как «горная ось» маршрутов, связывающая долины и природные точки интереса. Для туристов она ценна чистой водой, видами на горные склоны и возможностью планировать прогулки вдоль русла. В логистике важно учитывать сезонный характер потока и состояние грунтовых подъездов. Наиболее рационально посещать летом и в начале осени, когда выше предсказуемость условий. Рекомендуется придерживаться безопасных береговых зон и не подходить к воде на участках с крутым обрывом.",
+            "center 65%"
+        )
+    }
+];
+
+// Make places accessible for other modules (recommendations / trip plan)
+window.places = places;
+window.__PLACES__ = places;
+
+
+// остальной код оставь как был:
+const buttons = document.getElementById("buttons");
+const info = document.getElementById("info");
+
+function render(list) {
+    buttons.innerHTML = "";
+    list.forEach(p => {
+        const b = document.createElement("button");
+        b.textContent = p.name;
+        b.onclick = () => {
+            info.innerHTML = p.content + (window.tripInjectActionBar ? window.tripInjectActionBar(p) : "");
+
+            // Update favorites/plan UI (if enabled)
+            if (typeof window.renderTripUI === "function") {
+                try { window.renderTripUI(); } catch (_) { }
+            }
+
+            // Персонализация: фиксируем действия пользователя (просмотры)
+            if (typeof window.trackPlaceView === "function") {
+                try { window.trackPlaceView(p); } catch (_) { }
+            }
+
+            // Если на главной есть блок «Рекомендуем путешествие» — обновим
+            if (typeof window.refreshRecommendations === "function") {
+                try { window.refreshRecommendations(); } catch (_) { }
+            }
+        };
+
+        buttons.appendChild(b);
+    });
+}
+
+function applyFilter() {
+    const v = document.getElementById("filter").value;
+    render(v === "all" ? places : places.filter(p => p.type === v));
+}
+
+render(places);
+
+/* ==========================================================
+   Favorites ⭐ + "My Trip Plan" (localStorage)
+   Keys aligned with existing personalization: userProfile / userHistory_v1
+   ========================================================== */
+(() => {
+  const FAV_KEY = "userFavorites_v1";
+  const PLAN_KEY = "userTripPlan_v1";
+
+  const $ = (id) => document.getElementById(id);
+
+  const safeParse = (v, fallback) => {
+    try { return JSON.parse(v); } catch { return fallback; }
+  };
+
+  const getFavorites = () => safeParse(localStorage.getItem(FAV_KEY) || "[]", []);
+  const setFavorites = (arr) => localStorage.setItem(FAV_KEY, JSON.stringify(arr));
+
+  const getPlan = () => safeParse(localStorage.getItem(PLAN_KEY) || "[]", []);
+  const setPlan = (arr) => localStorage.setItem(PLAN_KEY, JSON.stringify(arr));
+
+  const esc = (s) => String(s ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+
+  const stripHTML = (html) => {
+    const d = document.createElement("div");
+    d.innerHTML = String(html ?? "");
+    return (d.textContent || "").trim();
+  };
+
+  // your places don't have a stable key -> use name as primary
+  const placeKey = (p) => p?.key || p?.id || p?.name;
+
+  const getPlaceByKey = (key) => {
+    const arr = window.__PLACES__ || window.places || [];
+    return arr.find(p => placeKey(p) === key) || null;
+  };
+
+  const isFav = (key) => getFavorites().includes(key);
+
+  const toggleFav = (key) => {
+    const fav = getFavorites();
+    const i = fav.indexOf(key);
+    if (i >= 0) fav.splice(i, 1);
+    else fav.push(key);
+    setFavorites(fav);
+  };
+
+  const addToPlan = (key) => {
+    const plan = getPlan();
+    if (!plan.some(x => x.key === key)) {
+      plan.push({ key, note: "", addedAt: Date.now() });
+      setPlan(plan);
+    }
+  };
+
+  const removeFromPlan = (key) => {
+    setPlan(getPlan().filter(x => x.key !== key));
+  };
+
+  const movePlan = (key, dir) => {
+    const plan = getPlan();
+    const i = plan.findIndex(x => x.key === key);
+    const j = i + dir;
+    if (i < 0 || j < 0 || j >= plan.length) return;
+    [plan[i], plan[j]] = [plan[j], plan[i]];
+    setPlan(plan);
+  };
+
+  const updateNote = (key, note) => {
+    const plan = getPlan();
+    const item = plan.find(x => x.key === key);
+    if (!item) return;
+    item.note = String(note ?? "").slice(0, 400);
+    setPlan(plan);
+  };
+
+  // Inject buttons into the place view (#info)
+  window.tripInjectActionBar = (p) => {
+    const key = placeKey(p);
+    if (!key) return "";
+    return `
+      <div class="place-actions" style="display:flex; gap:10px; align-items:center; justify-content:flex-end; margin-top:12px;">
+        <button class="fav-btn" type="button" data-fav="${esc(key)}" aria-label="В избранное">☆</button>
+        <button class="trip-btn primary" type="button" data-add-plan="${esc(key)}">В план</button>
+      </div>
+    `;
+  };
+
+  // Main renderer for section #trip
+  function renderTripUI() {
+    const favList = $("favList");
+    const planList = $("planList");
+    if (!favList || !planList) return;
+
+    const fav = getFavorites();
+    const plan = getPlan();
+
+    // Favorites list
+    if (!fav.length) {
+      favList.innerHTML = `<div class="trip-meta">Пока пусто. Нажмите ☆ на локации.</div>`;
+    } else {
+      favList.innerHTML = fav.map((key) => {
+        const p = getPlaceByKey(key);
+        const title = p?.name || key;
+        const desc = p ? stripHTML(p.content).slice(0, 110) : "";
+        return `
+          <div class="trip-item">
+            <div>
+              <div class="trip-title">${esc(title)}</div>
+              <div class="trip-meta">${esc(desc)}${desc.length >= 110 ? "…" : ""}</div>
+            </div>
+            <div class="trip-actions">
+              <button class="trip-btn primary" type="button" data-add-plan="${esc(key)}">В план</button>
+              <button class="trip-btn" type="button" data-fav="${esc(key)}">Убрать</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // Plan list
+    if (!plan.length) {
+      planList.innerHTML = `<div class="trip-meta">Добавьте 2–6 локаций в план и расставьте порядок.</div>`;
+    } else {
+      planList.innerHTML = plan.map((item, idx) => {
+        const p = getPlaceByKey(item.key);
+        const title = p?.name || item.key;
+        return `
+          <div class="trip-item">
+            <div>
+              <div class="trip-title">${idx + 1}. ${esc(title)}</div>
+              <textarea class="trip-note" data-note="${esc(item.key)}"
+                placeholder="Заметка (время, бюджет, что взять)">${esc(item.note || "")}</textarea>
+            </div>
+            <div class="trip-actions">
+              <button class="trip-btn" type="button" data-move="${esc(item.key)}" data-dir="-1">↑</button>
+              <button class="trip-btn" type="button" data-move="${esc(item.key)}" data-dir="1">↓</button>
+              <button class="trip-btn" type="button" data-remove-plan="${esc(item.key)}">✕</button>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // Update stars on visible place actions
+    document.querySelectorAll(".fav-btn[data-fav]").forEach(btn => {
+      const key = btn.getAttribute("data-fav");
+      const on = isFav(key);
+      btn.classList.toggle("is-on", on);
+      btn.textContent = on ? "★" : "☆";
+    });
+  }
+
+  // Delegated events (works for dynamically injected buttons)
+  document.addEventListener("click", (e) => {
+    const favBtn = e.target.closest("[data-fav]");
+    if (favBtn) {
+      toggleFav(favBtn.getAttribute("data-fav"));
+      renderTripUI();
+      return;
+    }
+
+    const addBtn = e.target.closest("[data-add-plan]");
+    if (addBtn) {
+      addToPlan(addBtn.getAttribute("data-add-plan"));
+      renderTripUI();
+      return;
+    }
+
+    const rmBtn = e.target.closest("[data-remove-plan]");
+    if (rmBtn) {
+      removeFromPlan(rmBtn.getAttribute("data-remove-plan"));
+      renderTripUI();
+      return;
+    }
+
+    const mvBtn = e.target.closest("[data-move]");
+    if (mvBtn) {
+      movePlan(mvBtn.getAttribute("data-move"), Number(mvBtn.getAttribute("data-dir")));
+      renderTripUI();
+      return;
+    }
+  });
+
+  document.addEventListener("input", (e) => {
+    const note = e.target.closest("[data-note]");
+    if (!note) return;
+    updateNote(note.getAttribute("data-note"), note.value);
+  });
+
+  // Clear buttons in your HTML
+  window.addEventListener("DOMContentLoaded", () => {
+    $("tripClearFav")?.addEventListener("click", () => {
+      setFavorites([]);
+      renderTripUI();
+    });
+
+    $("tripClearPlan")?.addEventListener("click", () => {
+      setPlan([]);
+      renderTripUI();
+    });
+
+    renderTripUI();
+  });
+
+  // expose
+  window.renderTripUI = renderTripUI;
+})();
+
+/* ==========================================================
+   SHARE "MY TRIP PLAN" VIA URL (works even on file:///)
+   - Button: id="tripShareLink"
+   - Storage: tripPlan_v1
+   ========================================================== */
+(function setupTripShare() {
+  const TRIP_KEY = "tripPlan_v1";
+
+  function safeTrip() {
+    try {
+      return JSON.parse(localStorage.getItem(TRIP_KEY) || '{"favorites":[],"plan":[]}');
+    } catch {
+      return { favorites: [], plan: [] };
+    }
+  }
+
+  function encodePayload(payload) {
+    const json = JSON.stringify(payload);
+    // JSON -> base64url
+    return btoa(unescape(encodeURIComponent(json)))
+      .replaceAll("+", "-")
+      .replaceAll("/", "_")
+      .replaceAll("=", "");
+  }
+
+  function decodeToken(token) {
+    try {
+      let b64 = token.replaceAll("-", "+").replaceAll("_", "/");
+      while (b64.length % 4 !== 0) b64 += "=";
+      const json = decodeURIComponent(escape(atob(b64)));
+      return JSON.parse(json);
+    } catch {
+      return null;
+    }
+  }
+
+  // ---- Copy link (robust: prompt fallback; works on file://) ----
+  function copyLink() {
+    const trip = safeTrip();
+
+    const payload = {
+      v: 1,
+      fav: Array.isArray(trip.favorites) ? trip.favorites : [],
+      plan: Array.isArray(trip.plan)
+        ? trip.plan.map(x => ({ key: x.key, note: String(x.note || "").slice(0, 400) }))
+        : []
+    };
+
+    const token = encodePayload(payload);
+    const url = new URL(window.location.href);
+    url.searchParams.set("trip", token);
+
+    const text = url.toString();
+
+    // Clipboard API is often blocked on file://. Try clipboard only when secure, otherwise prompt.
+    const canClipboard = !!(navigator.clipboard && window.isSecureContext);
+    if (canClipboard) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Ссылка скопирована ✅");
+      }).catch(() => {
+        window.prompt("Скопируйте ссылку (Ctrl+C, Enter):", text);
+      });
+    } else {
+      window.prompt("Скопируйте ссылку (Ctrl+C, Enter):", text);
+    }
+  }
+
+  // Bind click
+  window.addEventListener("DOMContentLoaded", () => {
+    const btn = document.getElementById("tripShareLink");
+    if (btn) btn.addEventListener("click", copyLink);
+  });
+
+  // ---- Import from URL (once per open) ----
+  (function importTripFromUrlOnce() {
+    const url = new URL(window.location.href);
+    const token = url.searchParams.get("trip");
+    if (!token) return;
+
+    const data = decodeToken(token);
+    if (!data || data.v !== 1) return;
+
+    const current = safeTrip();
+    const favSet = new Set([...(current.favorites || []), ...(data.fav || [])]);
+
+    const planMap = new Map();
+    (current.plan || []).forEach(x => x?.key && planMap.set(x.key, x));
+    (data.plan || []).forEach(x => {
+      if (!x?.key) return;
+      if (!planMap.has(x.key)) planMap.set(x.key, { key: x.key, note: String(x.note || "").slice(0, 400), addedAt: Date.now() });
+    });
+
+    localStorage.setItem(TRIP_KEY, JSON.stringify({
+      favorites: Array.from(favSet),
+      plan: Array.from(planMap.values())
+    }));
+
+    // Remove query param from the address (so it won't re-import on refresh)
+    url.searchParams.delete("trip");
+    history.replaceState({}, "", url.toString());
+
+    if (typeof window.renderTripUI === "function") {
+      try { window.renderTripUI(); } catch {}
+    }
+
+    alert("План поездки импортирован ✅");
+  })();
+})();

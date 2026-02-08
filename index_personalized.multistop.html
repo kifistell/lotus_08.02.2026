@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Гид по Восточному Казахстану</title>
+
+    <!-- ОСНОВНОЙ CSS -->
+    <link rel="stylesheet" href="quide_1.fixed.full.v2.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css">
+
+
+
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <div class="wrapper">
+        <svg class="wave" viewBox="0 0 1440 150" preserveAspectRatio="none">
+            <path d="M0,30 C360,120 1080,0 1440,60 L1440,150 L0,150 Z" fill="#ffffff"></path>
+        </svg>
+
+        <header class="container">
+            <div class="header-top">
+                <img src="lotus.png" class="LOGO">
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#map12345">Маршруты</a></li>
+                        <li><a href="#wx">Погода</a></li>
+                        <li><a href="#info">Что посмотреть</a></li>
+                        <li><a href="profile_1_v2.html">Профиль</a></li>
+                        <li class="theme-toggle">
+                            <button id="themeToggle">Тема</button>
+                        </li>
+                        <li class="btn"><a href="tel:+77711623673">Связаться с гидом</a></li>
+                        <li class="lang" id="langSwitch">
+                            <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Выбор языка">
+                                RU
+                                <span class="lang-caret" aria-hidden="true">▾</span>
+                            </button>
+
+                            <div class="lang-menu" role="menu" aria-label="Языки">
+                                <a class="lang-item is-active" role="menuitem" href="HTMLPage2.html" lang="ru" hreflang="ru">Русский</a>
+                                <a class="lang-item" role="menuitem" href="HTMLPage2_KZ.html" lang="kk" hreflang="kk">Қазақша</a>
+                                <a class="lang-item" role="menuitem" href="HTMLPage2_EN.html" lang="en" hreflang="en">English</a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </nav>
+
+            </div>
+            <h1>ИССЛЕДУЙ ВОСТОЧНЫЙ КАЗАХСТАН</h1>
+
+
+        </header>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <div class="second">
+        <div class="hero container">
+            <img class="map" id="heroMap" src="map.png" alt="Карта ВКО">
+
+            <div class="hero-info">
+                <h3>Ваш гид по ВКО</h3>
+                <p id="green">Путешествуй по ВКО</p>
+
+                <p>
+                    Каждое путешествие - это история.
+                    Мы поможем вам увидеть Восточный Казахстан таким, каким его знают только местные.
+                </p>
+
+                <p>
+                    Планируйте поездки по ВКО с понятными ориентирами: что посмотреть, как добраться, когда лучше ехать и сколько времени заложить.
+                    Всё собрано в одном месте - быстро, удобно и по делу.
+                </p>
+            </div>
+
+            <img class="air" src="air.png" alt="">
+        </div>
+
+        <!-- ВАЖНО: сброс float/обтекания, чтобы карусель начиналась корректно -->
+        <div style="clear: both;"></div>
+
+        <section class="carusel">
+            <div class="main_cro container">
+                <div class="events-slider no-arrows">
+                    <div class="events-window">
+                        <div class="events-track">
+
+                            <div class="card"><img src="katon-plato.jpg" alt="Фото 2"></div>
+                            <div class="card"><img src="katon.jpeg" alt="Фото 2"></div>
+                            <div class="card"><img src="katon-rika.jpg" alt="Фото 2"></div>
+                            <div class="card"><img src="liys.png" alt="Фото 2"></div>
+                            <div class="card"><img src="goluboyozero.jpeg" alt="Фото 2"></div>
+                            <div class="card"><img src="tursugyn.jpg" alt="Фото 2"></div>
+                            <div class="card"><img src="katon-plato.jpg" alt="Фото 2"></div>
+                            <div class="card"><img src="osyl.jpeg" alt="Фото 2"></div>
+                            <div class="card"><img src="beluha.png" alt="Фото 2"></div>
+                            <div class="card"><img src="priirtysh.jpg" alt="Фото 3"></div>
+                            <div class="card"><img src="vodopad.jpeg" alt="Фото 2"></div>
+                            <div class="card"><img src="ozera.jpeg" alt="Фото 2"></div>
+
+                            <div class="card"><img src="sibiny_1.jpeg" alt="Фото 2"></div>
+                            <div class="card"><img src="sibiny_2.jpeg" alt="Фото 2"></div>
+                            <div class="card"><img src="turgen.jpg" alt="Фото 2"></div>
+                            <div class="card"><img src="zakat.jpg" alt="Фото 2"></div>
+                            <div class="card"><img src="krasivo.jpeg" alt="Фото 2"></div>
+                            <div class="card"><img src="sibiny_1.jpeg" alt="Фото 2"></div>
+                            <div class="card"><img src="gorakrasivo.jpeg" alt="Фото 3"></div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nothero-info">
+                    <h2>Там, где начинается твой путь</h2>
+                    <p>Выберите направление — и начните путешествие по ВКО.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <section class="wx-screen" id="wx">
+        <div class="container wx-wrap">
+            <div class="wx-top">
+                <div>
+                    <div class="wx-kicker">Погода</div>
+                    <h2 class="wx-title">ВКО</h2>
+                </div>
+
+                <div class="wx-controls">
+                    <button class="wx-collapse" id="wxCollapse" aria-expanded="true" title="Свернуть/развернуть">
+                        <span class="wx-chev" aria-hidden="true"></span>
+                    </button>
+
+                    <div class="wx-select-wrap">
+                        <select class="wx-select" id="wxRegion"></select>
+                    </div>
+
+                    <button class="wx-btn" id="wxReload" type="button">Обновить</button>
+                </div>
+            </div>
+
+            <div class="wx-meta" id="wxMeta">Загрузка…</div>
+
+            <div class="wx-panel" id="wxPanel">
+                <div class="wx-grid">
+                    <!-- 1: UV -->
+                    <div class="wx-card" data-card="uv">
+                        <div class="wx-card-head">
+                            <div class="wx-label">УФ</div>
+                            <div class="wx-big" id="uvText">—</div>
+                        </div>
+
+                        <div class="wx-gauge">
+                            <svg viewBox="0 0 120 80" class="wx-gsvg">
+                                <path class="wx-track" d="M10 70 A50 50 0 0 1 110 70" />
+                                <path class="wx-prog" d="M10 70 A50 50 0 0 1 110 70" />
+                                <circle class="wx-dot" cx="10" cy="70" r="5" />
+                            </svg>
+                            <div class="wx-sub" id="uvSub">—</div>
+                        </div>
+                    </div>
+
+                    <!-- 2: Humidity -->
+                    <div class="wx-card" data-card="hum">
+                        <div class="wx-card-head">
+                            <div class="wx-label">Влажность</div>
+                            <div class="wx-big" id="humText">—</div>
+                        </div>
+
+                        <div class="wx-gauge">
+                            <svg viewBox="0 0 120 80" class="wx-gsvg">
+                                <path class="wx-track" d="M10 70 A50 50 0 0 1 110 70" />
+                                <path class="wx-prog" d="M10 70 A50 50 0 0 1 110 70" />
+                                <circle class="wx-dot" cx="10" cy="70" r="5" />
+                            </svg>
+                            <div class="wx-sub">💧</div>
+                        </div>
+                    </div>
+
+                    <!-- 3: Feels like -->
+                    <div class="wx-card" data-card="feel">
+                        <div class="wx-card-head">
+                            <div class="wx-label">Ощущается</div>
+                            <div class="wx-big" id="feelText">—</div>
+                        </div>
+
+                        <div class="wx-gauge">
+                            <svg viewBox="0 0 120 80" class="wx-gsvg">
+                                <path class="wx-track" d="M10 70 A50 50 0 0 1 110 70" />
+                                <path class="wx-prog" d="M10 70 A50 50 0 0 1 110 70" />
+                                <circle class="wx-dot" cx="10" cy="70" r="5" />
+                            </svg>
+                            <div class="wx-sub" id="feelSub">—</div>
+                        </div>
+                    </div>
+
+                    <!-- 4: Wind -->
+                    <div class="wx-card" data-card="wind">
+                        <div class="wx-card-head">
+                            <div class="wx-label">Ветер</div>
+                            <div class="wx-big" id="windText">—</div>
+                        </div>
+
+                        <div class="wx-compass">
+                            <div class="wx-compass-ring">
+                                <div class="wx-n">N</div><div class="wx-e">E</div><div class="wx-s">S</div><div class="wx-w">W</div>
+                                <div class="wx-arrow" id="windArrow"></div>
+                            </div>
+                            <div class="wx-sub" id="windSub">—</div>
+                        </div>
+                    </div>
+
+                    <!-- 5: Sunset -->
+                    <div class="wx-card" data-card="sun">
+                        <div class="wx-card-head">
+                            <div class="wx-label">Закат</div>
+                            <div class="wx-big" id="sunsetText">—</div>
+                        </div>
+
+                        <div class="wx-sunline">
+                            <svg viewBox="0 0 220 90" class="wx-sunsvg">
+                                <path class="wx-suntrack" d="M20 70 C70 20 150 20 200 70" />
+                                <circle class="wx-sundot" cx="200" cy="70" r="7" />
+                                <line class="wx-horizon" x1="20" y1="70" x2="200" y2="70" />
+                            </svg>
+                            <div class="wx-sub" id="sunSub">—</div>
+                        </div>
+                    </div>
+
+                    <!-- 6: Pressure -->
+                    <div class="wx-card" data-card="press">
+                        <div class="wx-card-head">
+                            <div class="wx-label">Давление</div>
+                            <div class="wx-big" id="pressText">—</div>
+                        </div>
+
+                        <div class="wx-gauge">
+                            <svg viewBox="0 0 120 80" class="wx-gsvg">
+                                <path class="wx-track" d="M10 70 A50 50 0 0 1 110 70" />
+                                <path class="wx-prog" d="M10 70 A50 50 0 0 1 110 70" />
+                                <circle class="wx-dot" cx="10" cy="70" r="5" />
+                            </svg>
+                            <div class="wx-sub">mbar</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wx-forecast">
+                    <div class="wx-forecast-title">Прогноз на 7 дней</div>
+                    <div class="wx-days" id="wxDays"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="app">
+
+
+        <!-- ===== ПЕРСОНАЛЬНЫЕ РЕКОМЕНДАЦИИ ===== -->
+        <section class="reco" id="reco" aria-labelledby="recoTitle">
+            <div class="reco-head">
+                <div>
+                    <div class="reco-kicker">Персонально для вас</div>
+                    <h2 class="reco-title" id="recoTitle">Рекомендуем путешествие</h2>
+                    <p class="reco-sub" id="recoSub">Заполните профиль — и рекомендации начнут учитывать цели, опыт и прошлые просмотры.</p>
+                </div>
+
+                <div class="reco-actions">
+                    <a class="reco-link" href="profile_1_v2.html" title="Настроить профиль">Настроить профиль</a>
+                    <button class="reco-btn" id="recoRefresh" type="button" title="Пересчитать рекомендации">Обновить</button>
+                </div>
+            </div>
+
+            <div class="reco-grid" id="recoGrid" aria-live="polite"></div>
+
+            <div class="reco-empty" id="recoEmpty" hidden>
+                <p style="margin:0;">Пока нет данных профиля. Откройте «Профиль» и выберите цель, длительность и транспорт — и блок станет персональным.</p>
+            </div>
+        </section>
+
+        <!-- ИНФО-ЭКРАН -->
+        <div class="info-panel" id="info">
+            <h2>Добро пожаловать</h2>
+            <p>Я расскажу вам о местах нашего В.К.О.</p>
+        </div>
+
+        <!-- ПАНЕЛЬ УПРАВЛЕНИЯ -->
+        <div class="side">
+            <select id="filter" onchange="applyFilter()">
+                <option value="all">Все объекты</option>
+                <option value="mountains">Горы и хребты</option>
+                <option value="lakes">Озёра и водохранилища</option>
+                <option value="rivers">Реки</option>
+                <option value="forests">Леса и тайга</option>
+                <option value="plateaus">Плато</option>
+                <option value="canyons">Каньоны и ущелья</option>
+                <option value="steppes">Степи и луга</option>
+                <option value="glaciers">Ледники</option>
+            </select>
+
+            <div class="buttons" id="buttons"></div>
+        </div>
+    </div>
+
+
+    <script src="script_personalized.fixed.v2.js"></script>
+
+    <script>
+        /* ===== Персонализация главной страницы по localStorage.userProfile ===== */
+        (function () {
+            const PROFILE_KEY = "userProfile";
+            const HISTORY_KEY = "userHistory_v1";
+
+            function safeParse(json) {
+                try { return JSON.parse(json); } catch { return null; }
+            }
+
+            function getProfile() {
+                const raw = localStorage.getItem(PROFILE_KEY);
+                const p = raw ? safeParse(raw) : null;
+                if (!p || typeof p !== "object") return null;
+                return {
+                    name: typeof p.name === "string" ? p.name.trim() : "",
+                    notes: typeof p.notes === "string" ? p.notes.trim() : "",
+                    goal: typeof p.goal === "string" ? p.goal : "",
+                    level: typeof p.level === "string" ? p.level : "",
+                    duration: typeof p.duration === "string" ? p.duration : "",
+                    transport: typeof p.transport === "string" ? p.transport : "",
+                    interests: Array.isArray(p.interests) ? p.interests.filter(Boolean) : [],
+                };
+            }
+
+            function getHistory() {
+                const raw = localStorage.getItem(HISTORY_KEY);
+                const h = raw ? safeParse(raw) : null;
+                if (!h || typeof h !== "object") {
+                    return { views: {}, byType: {}, last: [] };
+                }
+                return {
+                    views: (h.views && typeof h.views === "object") ? h.views : {},
+                    byType: (h.byType && typeof h.byType === "object") ? h.byType : {},
+                    last: Array.isArray(h.last) ? h.last : [],
+                };
+            }
+
+            function setHistory(h) {
+                localStorage.setItem(HISTORY_KEY, JSON.stringify(h));
+            }
+
+            /* Вызывается из script.js при клике по месту */
+            window.trackPlaceView = function (place) {
+                if (!place || !place.name) return;
+                const h = getHistory();
+                h.views[place.name] = (h.views[place.name] || 0) + 1;
+                if (place.type) h.byType[place.type] = (h.byType[place.type] || 0) + 1;
+                h.last.unshift({ name: place.name, type: place.type || "", ts: Date.now() });
+                h.last = h.last.slice(0, 20);
+                setHistory(h);
+            };
+
+            const GOAL_TYPES = {
+                relax: ["lakes", "forests", "rivers", "steppes"],
+                family: ["lakes", "forests", "rivers", "steppes"],
+                trekking: ["mountains", "plateaus", "canyons", "glaciers"],
+                photo: ["mountains", "plateaus", "canyons", "glaciers", "lakes"],
+                fishing: ["lakes", "rivers"],
+            };
+
+            /* Подписи */
+            const LABELS = {
+                goal: { relax: "Relax", family: "Family", trekking: "Trekking", photo: "Photo", fishing: "Fishing" },
+                level: { beginner: "Beginner", medium: "Medium", advanced: "Advanced" },
+                duration: { "1day": "1 day", weekend: "Weekend", "3to5": "3–5 days" },
+                transport: { car: "Car", public: "Public", tour: "Tour" },
+                interests: {
+                    lakes: "Озёра",
+                    mountains: "Горы",
+                    waterfalls: "Водопады",
+                    canyons: "Каньоны",
+                    forests: "Леса/тайга",
+                    rivers: "Реки",
+                    plateaus: "Плато",
+                    steppes: "Степи/луга",
+                    glaciers: "Ледники",
+                }
+            };
+
+            function label(group, key) {
+                return (LABELS[group] && LABELS[group][key]) ? LABELS[group][key] : String(key);
+            }
+
+            /* Мини-мета по доступности и времени (можешь расширять) */
+            const PLACE_META = {
+                "Алтай (Катон-Карагай)": { minDays: 3, access: ["car", "tour"] },
+                "Восточный Алтай": { minDays: 3, access: ["car", "tour"] },
+                "Катон-Карагайское плато": { minDays: 2, access: ["car", "tour"] },
+                "Маркаколь": { minDays: 3, access: ["car", "tour"] },
+                "Ледники Восточного Алтая": { minDays: 3, access: ["tour", "car"] },
+                "Ледник Белуха": { minDays: 4, access: ["tour", "car"] },
+                "Озеро Зайсан": { minDays: 2, access: ["car", "tour"] },
+                "Бухтарминское водохранилище": { minDays: 1, access: ["car", "public", "tour"] },
+                "Ленточные боры Прииртышья": { minDays: 1, access: ["car", "public"] },
+                "Иртыш": { minDays: 1, access: ["car", "public"] },
+                "Ульбинское плато": { minDays: 1, access: ["car", "tour"] },
+            };
+
+            function durationMaxDays(duration) {
+                if (duration === "1day") return 1;
+                if (duration === "weekend") return 2;
+                if (duration === "3to5") return 5;
+                return 2;
+            }
+
+            function defaultMeta(place) {
+                const type = place.type;
+                const minDays = (type === "glaciers") ? 3
+                    : (type === "mountains" || type === "plateaus" || type === "canyons") ? 2
+                        : 1;
+
+                const access = (type === "lakes" || type === "forests" || type === "rivers" || type === "steppes")
+                    ? ["car", "public", "tour"]
+                    : ["car", "tour"];
+
+                return { minDays, access };
+            }
+
+            function extractPreview(placeContent) {
+                try {
+                    const doc = new DOMParser().parseFromString(placeContent, "text/html");
+                    const img = doc.querySelector("img.place-photo")?.getAttribute("src") || "";
+                    const text = (doc.querySelector(".place-text")?.textContent || "").trim();
+                    return { img, text };
+                } catch {
+                    return { img: "", text: "" };
+                }
+            }
+
+            function topTypeFromHistory(history) {
+                let best = "";
+                let bestN = 0;
+                for (const [t, n] of Object.entries(history.byType || {})) {
+                    if (n > bestN) { bestN = n; best = t; }
+                }
+                return best;
+            }
+
+            /* ===== “Интеллектуальный” скоринг (профиль + история действий) ===== */
+            function scorePlace(place, profile, history) {
+                let score = 0;
+                const type = place.type;
+
+                const meta = PLACE_META[place.name] || defaultMeta(place);
+                const maxDays = durationMaxDays(profile.duration);
+
+                /* 1) Интересы — самый сильный сигнал */
+                if (profile.interests.includes(type)) score += 40;
+
+                /* 2) Цель */
+                const goalTypes = GOAL_TYPES[profile.goal] || [];
+                if (goalTypes.includes(type)) score += 20;
+
+                /* 3) Уровень */
+                if (profile.level === "beginner") {
+                    if (type === "glaciers") score -= 35;
+                    else if (type === "mountains" || type === "canyons" || type === "plateaus") score -= 10;
+                    else score += 6;
+                } else if (profile.level === "advanced") {
+                    if (type === "glaciers" || type === "mountains" || type === "canyons" || type === "plateaus") score += 10;
+                }
+
+                /* 4) Длительность */
+                if (meta.minDays <= maxDays) score += 12;
+                else score -= 22;
+
+                /* 5) Транспорт */
+                if (profile.transport) {
+                    if (meta.access.includes(profile.transport)) score += 10;
+                    else score -= 25;
+                }
+
+                /* 6) Предыдущие действия: не повторяем просмотренное */
+                const views = (history.views && history.views[place.name]) ? history.views[place.name] : 0;
+                if (views > 0) score -= 15;
+
+                /* 7) Похожее на то, что смотрели */
+                const histTopType = topTypeFromHistory(history);
+                if (histTopType && histTopType === type && views === 0) score += 8;
+
+                /* 8) Мини-бонус за заполненность профиля */
+                const filled = [profile.goal, profile.level, profile.duration, profile.transport].filter(Boolean).length;
+                score += filled * 1.5;
+
+                return score;
+            }
+
+            function buildReason(place, profile, history) {
+                const reasons = [];
+                if (profile.interests.includes(place.type)) reasons.push("совпадает с интересами");
+                if ((GOAL_TYPES[profile.goal] || []).includes(place.type)) reasons.push("подходит под цель");
+                const meta = PLACE_META[place.name] || defaultMeta(place);
+
+                if (profile.duration) {
+                    const maxDays = durationMaxDays(profile.duration);
+                    if (meta.minDays <= maxDays) reasons.push("успеете по времени");
+                }
+
+                if (profile.transport && meta.access.includes(profile.transport)) reasons.push("реально добраться вашим транспортом");
+
+                const histTopType = topTypeFromHistory(history);
+                if (histTopType && histTopType === place.type) reasons.push("похоже на то, что вы смотрели раньше");
+
+                if (reasons.length === 0) reasons.push("может понравиться по общему профилю");
+                return reasons.slice(0, 3).join(" • ");
+            }
+
+            function chip(text) {
+                const span = document.createElement("span");
+                span.className = "reco-chip";
+                span.textContent = text;
+                return span;
+            }
+
+            function renderRecommendations() {
+                const grid = document.getElementById("recoGrid");
+                const empty = document.getElementById("recoEmpty");
+                const sub = document.getElementById("recoSub");
+                if (!grid || !empty || !sub) return;
+
+                const profile = getProfile();
+                const history = getHistory();
+
+                const hasProfile = !!(profile && (profile.goal || profile.duration || profile.transport || (profile.interests && profile.interests.length)));
+                if (!hasProfile) {
+                    grid.innerHTML = "";
+                    empty.hidden = false;
+                    sub.textContent = "Заполните профиль — и рекомендации начнут учитывать цели, опыт и прошлые просмотры.";
+                    return;
+                }
+
+                empty.hidden = true;
+
+                const username = profile.name ? `, ${profile.name}` : "";
+                const interestsTxt = (profile.interests || []).length
+                    ? `Интересы: ${(profile.interests || []).map(t => label("interests", t)).join(", ")}`
+                    : "";
+                sub.textContent = `Мы учитываем ваш профиль${username}. ${interestsTxt}`.trim();
+
+                const list = (typeof places !== "undefined" && Array.isArray(places)) ? places.slice() : [];
+                const ranked = list
+                    .map(p => ({ p, s: scorePlace(p, profile, history) }))
+                    .sort((a, b) => b.s - a.s)
+                    .slice(0, 4)
+                    .map(x => x.p);
+
+                grid.innerHTML = "";
+
+                ranked.forEach(p => {
+                    const { img, text } = extractPreview(p.content);
+
+                    const card = document.createElement("article");
+                    card.className = "reco-card";
+
+                    const media = document.createElement("div");
+                    media.className = "reco-media";
+                    if (img) media.style.backgroundImage = `url('${img}')`;
+
+                    const body = document.createElement("div");
+                    body.className = "reco-body";
+
+                    const title = document.createElement("h3");
+                    title.className = "reco-card-title";
+                    title.textContent = p.name;
+
+                    const chips = document.createElement("div");
+                    chips.className = "reco-chips";
+                    if (profile.goal) chips.appendChild(chip(`цель: ${label("goal", profile.goal)}`));
+                    if (profile.duration) chips.appendChild(chip(`время: ${label("duration", profile.duration)}`));
+                    if (profile.transport) chips.appendChild(chip(`транспорт: ${label("transport", profile.transport)}`));
+                    if (profile.interests.includes(p.type)) chips.appendChild(chip(`интерес: ${label("interests", p.type)}`));
+
+                    const reason = document.createElement("p");
+                    reason.className = "reco-reason";
+                    reason.textContent = buildReason(p, profile, history);
+
+                    const teaser = document.createElement("p");
+                    teaser.className = "reco-teaser";
+                    teaser.textContent = text ? (text.length > 160 ? text.slice(0, 160) + "…" : text) : "";
+
+                    const actions = document.createElement("div");
+                    actions.className = "reco-card-actions";
+
+                    const openBtn = document.createElement("button");
+                    openBtn.type = "button";
+                    openBtn.className = "reco-btn";
+                    openBtn.textContent = "Открыть описание";
+                    openBtn.addEventListener("click", () => {
+                        const info = document.getElementById("info");
+                        if (info) {
+                            info.innerHTML = p.content;
+                            window.trackPlaceView?.(p);
+                            info.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                    });
+
+                    const toFilter = document.createElement("button");
+                    toFilter.type = "button";
+                    toFilter.className = "reco-btn ghost";
+                    toFilter.textContent = "Показать похожие";
+                    toFilter.addEventListener("click", () => {
+                        const sel = document.getElementById("filter");
+                        if (sel) {
+                            sel.value = p.type;
+                            if (typeof applyFilter === "function") applyFilter();
+                            document.getElementById("buttons")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                    });
+
+                    actions.appendChild(openBtn);
+                    actions.appendChild(toFilter);
+
+                    body.appendChild(title);
+                    body.appendChild(chips);
+                    body.appendChild(reason);
+                    if (teaser.textContent) body.appendChild(teaser);
+                    body.appendChild(actions);
+
+                    card.appendChild(media);
+                    card.appendChild(body);
+                    grid.appendChild(card);
+                });
+            }
+
+            window.refreshRecommendations = renderRecommendations;
+
+            const btn = document.getElementById("recoRefresh");
+            if (btn) btn.addEventListener("click", renderRecommendations);
+
+            renderRecommendations();
+        })();
+    </script>
+
+
+    <!-- ===== СЕКЦИЯ КАРТЫ (ПЕРЕД ФУТЕРОМ) ===== -->
+    <section class="route-section" id="map12345">
+        <div class="route-wrapper">
+
+            <div class="panel">
+                <h2>Конструктор маршрута (до 6 точек)</h2>
+
+                <label class="route-label" for="pointStart">Старт</label>
+                <select id="pointStart">
+                    <option value="">Выберите старт</option>
+                </select>
+
+                <label class="route-label" for="pointEnd">Финиш</label>
+                <select id="pointEnd">
+                    <option value="">Выберите финиш</option>
+                </select>
+
+                <div class="route-stops">
+                    <label class="route-label" for="pointAdd">Промежуточная точка</label>
+                    <div class="route-stops-row">
+                        <select id="pointAdd">
+                            <option value="">Добавить остановку…</option>
+                        </select>
+                        <button id="stopAddBtn" type="button" class="swap">Добавить</button>
+                    </div>
+
+                    <ul class="stops-list" id="stopsList"></ul>
+                    <p class="route-hint">Совет: добавляй 1–4 остановки между стартом и финишем (в сумме максимум 6 точек).</p>
+                </div>
+
+                <button id="routeBuild" type="button">Построить маршрут</button>
+                <div class="route-actions">
+                    <button id="routeSwap" type="button" class="swap">Развернуть маршрут</button>
+                    <button id="routeClear" type="button" class="swap danger">Очистить</button>
+                </div>
+
+                <div class="route-info" id="routeInfo"></div>
+            </div>
+
+            <div id="map"></div>
+
+        </div>
+    </section>
+
+    <section class="guides" id="guides">
+        <div class="container">
+            <div class="guides-head">
+                <h2 class="guides-title">Наши гиды</h2>
+                <p class="guides-subtitle">
+                    Выберите проводника под ваш стиль путешествия: горы, озёра, треккинг или комфортные туры.
+                </p>
+
+                <!-- Добавлено: строка с рекомендацией -->
+                <p class="guides-reco" id="guidesReco" hidden></p>
+            </div>
+
+            <div class="guides-grid">
+                <article class="guide-card" data-guide="g1">
+                    <img class="guide-img" src="" alt="Гид Кирилл">
+                    <div class="guide-overlay">
+                        <h3 class="guide-name">Кирилл</h3>
+                        <p class="guide-role">Горные маршруты • Алтай</p>
+                        <p class="guide-meta">Опыт: 5 лет • Рус/Eng</p>
+                    </div>
+                </article>
+
+                <article class="guide-card" data-guide="g2">
+                    <img class="guide-img" src="" alt="Гид Амир">
+                    <div class="guide-overlay">
+                        <h3 class="guide-name">Амир</h3>
+                        <p class="guide-role">Озёра • Маркаколь</p>
+                        <p class="guide-meta">Опыт: 4 года • Рус/Қаз</p>
+                    </div>
+                </article>
+
+                <article class="guide-card" data-guide="g3">
+                    <img class="guide-img" src="" alt="Гид Аружан">
+                    <div class="guide-overlay">
+                        <h3 class="guide-name">Аружан</h3>
+                        <p class="guide-role">Семейные туры • Локации</p>
+                        <p class="guide-meta">Опыт: 3 года • Рус/Eng</p>
+                    </div>
+                </article>
+
+                <article class="guide-card" data-guide="g4">
+                    <img class="guide-img" src="" alt="Гид Жанарыс">
+                    <div class="guide-overlay">
+                        <h3 class="guide-name">Жанарыс</h3>
+                        <p class="guide-role">Треккинг • Плато/перевалы</p>
+                        <p class="guide-meta">Опыт: 6 лет • Рус/Қаз</p>
+                    </div>
+                </article>
+
+                <article class="guide-card" data-guide="g5">
+                    <img class="guide-img" src="" alt="Гид Алия">
+                    <div class="guide-overlay">
+                        <h3 class="guide-name">Алия</h3>
+                        <p class="guide-role">Фото-туры • Лучшие виды</p>
+                        <p class="guide-meta">Опыт: 4 года • Рус/Eng</p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="apply-cta-screen">
+        <a class="apply-btn" href="HTMLPage1.html" target="_blank" rel="noopener">Оставить заявку</a>
+    </section>
+
+    <section class="trip" id="trip">
+        <div class="container">
+            <h2>Мой план поездки</h2>
+            <p class="trip-sub">Сохраняйте локации, меняйте порядок и добавляйте заметки. Данные хранятся в localStorage.</p>
+
+            <div class="trip-grid">
+                <div class="trip-card">
+                    <div class="trip-head">
+                        <h3>Избранное</h3>
+                        <button class="trip-btn" type="button" id="tripShareLink">Скопировать ссылку</button>
+
+
+                        <button class="trip-btn ghost" type="button" id="tripClearFav">Очистить</button>
+                    </div>
+                    <div id="favList" class="trip-list"></div>
+                </div>
+
+                <div class="trip-card">
+                    <div class="trip-head">
+                        <h3>Маршрут / План</h3>
+                        <button class="trip-btn ghost" type="button" id="tripClearPlan">Очистить</button>
+                    </div>
+                    <div id="planList" class="trip-list"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <!-- ===================== COMMENTS / REVIEWS ===================== -->
+    <section id="comments" class="comments-section">
+        <div class="container">
+            <h2 class="section-title">Отзывы</h2>
+            <p class="comments-subtitle">Оставьте комментарий — это помогает улучшать сервис и маршруты.</p>
+
+            <div class="comments-grid">
+                <form id="commentForm" class="comment-form">
+                    <div class="comment-row">
+                        <label class="comment-field">
+                            <span class="comment-label">Имя</span>
+                            <input id="commentName" type="text" maxlength="40" placeholder="Например: Алия" required>
+                        </label>
+
+                        <label class="comment-field">
+                            <span class="comment-label">Оценка</span>
+                            <select id="commentRating" required>
+                                <option value="5">★★★★★ (5)</option>
+                                <option value="4">★★★★☆ (4)</option>
+                                <option value="3">★★★☆☆ (3)</option>
+                                <option value="2">★★☆☆☆ (2)</option>
+                                <option value="1">★☆☆☆☆ (1)</option>
+                            </select>
+                        </label>
+                    </div>
+
+                    <label class="comment-field comment-field-full">
+                        <span class="comment-label">Комментарий</span>
+                        <textarea id="commentText" rows="4" maxlength="400" placeholder="Что понравилось? Что можно улучшить?" required></textarea>
+                        <span class="comment-hint"><span id="commentCount">0</span>/400</span>
+                    </label>
+
+                    <div class="comment-actions">
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                        <button type="button" class="btn btn-secondary" id="clearReviews">Очистить</button>
+                    </div>
+
+         
+                </form>
+
+                <div class="comment-list-card">
+                    <div class="comment-list-head">
+                        <h3 class="comment-list-title">Последние отзывы</h3>
+                        <span class="comment-badge" id="commentsTotal">0</span>
+                    </div>
+                    <div id="commentsList" class="comment-list" aria-live="polite"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer-container container">
+
+            <div class="footer-about">
+                <h4>Гид по ВКО</h4>
+                <p>Путешествия по Восточному Казахстану</p>
+            </div>
+
+            <div class="footer-nav">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="#">Маршруты</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Галерея</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contacts">
+                <h4>Контакты</h4>
+                <p>Email: info@vko-travel.kz</p>
+                <p>Телефон: +7 (777) 000-00-00</p>
+            </div>
+
+        </div>
+        <div class="footer-bottom">© 2026 • Путешествия по ВКО</div>
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.min.js"></script>
+
+
+    <script>
+        (() => {
+            const PROFILE_KEY = "userProfile";
+            const LEVEL_RANK = { beginner: 1, medium: 2, advanced: 3 };
+
+
+            const GUIDE_RULES = {
+                g1: { displayName: "Кирилл", goals: ["trekking", "photo"], interests: ["mountains", "plateaus", "glaciers"], transport: ["car", "tour"], minLevel: "medium" },
+                g2: { displayName: "Амир", goals: ["relax", "fishing", "family"], interests: ["lakes", "rivers"], transport: ["car", "tour", "public"], minLevel: "beginner" },
+                g3: { displayName: "Аружан", goals: ["family", "relax"], interests: ["lakes", "forests", "steppes", "rivers"], transport: ["car", "tour", "public"], minLevel: "beginner" },
+                g4: { displayName: "Жанарыс", goals: ["trekking"], interests: ["mountains", "plateaus", "canyons", "glaciers"], transport: ["car", "tour"], minLevel: "medium" },
+                g5: { displayName: "Алия", goals: ["photo"], interests: ["mountains", "lakes", "plateaus", "canyons"], transport: ["car", "tour", "public"], minLevel: "beginner" },
+            };
+
+            // Если профиль сохраняется по-русски — приводим к нашим ключам.
+            const MAP_GOAL = {
+                "треккинг": "trekking", "trekking": "trekking",
+                "фото": "photo", "фото-туры": "photo", "photo": "photo",
+                "семейные": "family", "семейный": "family", "family": "family",
+                "отдых": "relax", "relax": "relax",
+                "рыбалка": "fishing", "fishing": "fishing",
+            };
+
+            const MAP_TRANSPORT = {
+                "машина": "car", "авто": "car", "car": "car",
+                "тур": "tour", "tour": "tour",
+                "общественный": "public", "public": "public",
+            };
+
+            const MAP_INTEREST = {
+                "горы": "mountains", "mountains": "mountains",
+                "озёра": "lakes", "озера": "lakes", "lakes": "lakes",
+                "леса": "forests", "forests": "forests",
+                "степи": "steppes", "steppes": "steppes",
+                "реки": "rivers", "rivers": "rivers",
+                "плато": "plateaus", "plateaus": "plateaus",
+                "каньоны": "canyons", "canyons": "canyons",
+                "ледники": "glaciers", "glaciers": "glaciers",
+            };
+
+            const safeParse = (s) => { try { return JSON.parse(s); } catch { return null; } };
+            const norm = (v) => (typeof v === "string" ? v.trim().toLowerCase() : "");
+
+            const normalizeProfile = (p) => {
+                const goal = MAP_GOAL[norm(p.goal)] || (p.goal || "");
+                const transport = MAP_TRANSPORT[norm(p.transport)] || (p.transport || "");
+                const level = norm(p.level); // ожидаем beginner/medium/advanced
+
+                const interestsRaw = Array.isArray(p.interests) ? p.interests : [];
+                const interests = interestsRaw
+                    .map(x => MAP_INTEREST[norm(x)] || "")
+                    .filter(Boolean);
+
+                return { goal, transport, level, interests };
+            };
+
+            const getProfile = () => {
+                const raw = localStorage.getItem(PROFILE_KEY);
+                const p = raw ? safeParse(raw) : null;
+                if (!p || typeof p !== "object") return null;
+
+                return normalizeProfile({
+                    goal: typeof p.goal === "string" ? p.goal : "",
+                    level: typeof p.level === "string" ? p.level : "",
+                    transport: typeof p.transport === "string" ? p.transport : "",
+                    interests: Array.isArray(p.interests) ? p.interests : [],
+                });
+            };
+
+            const levelRank = (l) => LEVEL_RANK[l] || 0;
+
+            function scoreGuide(rule, profile) {
+                // ЖЁСТКИЕ фильтры:
+                if (profile.transport && !rule.transport?.includes(profile.transport)) return null;
+
+                const pr = levelRank(profile.level);
+                const mr = levelRank(rule.minLevel);
+                if (pr && mr && pr < mr) return null;
+
+                // Скоринг:
+                const goalMatch = profile.goal && rule.goals?.includes(profile.goal);
+                const interestMatches = (profile.interests || []).filter(t => rule.interests?.includes(t));
+                const m = interestMatches.length;
+
+                // Если вообще нет совпадений (ни цель, ни интересы) — не рекомендуем
+                if (!goalMatch && m === 0) return null;
+
+                let s = 0;
+                if (goalMatch) s += 45;
+                if (!goalMatch && profile.goal) s -= 15; // есть цель, но не совпало
+
+                s += m * 18;            // интересы важнее
+                if (m >= 2) s += 12;
+                if (m >= 3) s += 8;
+
+                return { score: s, goalMatch, interestMatches };
+            }
+
+            function clearRecommendation(cards) {
+                for (const c of cards) {
+                    c.classList.remove("recommended");
+                    c.querySelector(".guide-badge")?.remove();
+                }
+            }
+
+            function applyGuideRecommendation() {
+                const grid = document.querySelector(".guides-grid");
+                if (!grid) return;
+
+                const cards = Array.from(grid.querySelectorAll(".guide-card[data-guide]"));
+                if (!cards.length) return;
+
+                const profile = getProfile();
+                const hasProfile =
+                    !!profile &&
+                    (!!profile.goal || !!profile.level || !!profile.transport || (profile.interests?.length > 0));
+                if (!hasProfile) return;
+
+                const scored = cards
+                    .map(card => {
+                        const id = (card.getAttribute("data-guide") || "").trim();
+                        const rule = GUIDE_RULES[id];
+                        if (!rule) return null;
+
+                        const r = scoreGuide(rule, profile);
+                        if (!r) return null;
+
+                        return { card, rule, ...r };
+                    })
+                    .filter(Boolean)
+                    .sort((a, b) => (b.score || 0) - (a.score || 0));
+
+                const best = scored[0];
+                if (!best) return;
+
+                // порог — чтобы не рекомендовать при слабом совпадении
+                if (best.score < 35) return;
+
+                clearRecommendation(cards);
+
+                best.card.classList.add("recommended");
+                const badge = document.createElement("span");
+                badge.className = "guide-badge";
+                badge.textContent = "Рекомендуем";
+                best.card.appendChild(badge);
+
+                const reco = document.getElementById("guidesReco");
+                if (reco) {
+                    reco.hidden = false;
+                    reco.textContent = "Рекомендуемый гид: " + best.rule.displayName;
+                }
+
+                // поднимаем первым
+                grid.prepend(best.card);
+            }
+
+            document.addEventListener("DOMContentLoaded", applyGuideRecommendation, { once: true });
+        })();
+    </script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const slider = document.querySelector(".events-slider");
+            if (!slider) return;
+
+            const track = slider.querySelector(".events-track");
+            const windowEl = slider.querySelector(".events-window");
+            const btnLeft = slider.querySelector(".arrow.left");
+            const btnRight = slider.querySelector(".arrow.right");
+
+            let step = 0;
+            let gap = 0;
+            let visible = 3;
+            let auto = null;
+            let isAnimating = false;
+            let dir = "next"; // "next" | "prev"
+
+            function ensureEnoughCards() {
+                const base = Array.from(track.children);
+                if (base.length === 0) return;
+
+                // Нужно минимум visible+2, чтобы карусель не “кончалась”
+                while (track.children.length < visible + 2) {
+                    for (const c of base) {
+                        if (track.children.length >= visible + 2) break;
+                        track.appendChild(c.cloneNode(true));
+                    }
+                }
+            }
+
+            function recalc() {
+                const card = track.querySelector(".card");
+                if (!card) return;
+
+                gap = parseFloat(getComputedStyle(track).gap) || 0;
+
+                // ширина карточки (после загрузки изображений она стабильнее)
+                const cardW = card.getBoundingClientRect().width;
+                step = cardW + gap;
+
+                const winW = windowEl.getBoundingClientRect().width;
+                visible = Math.max(1, Math.floor((winW + gap) / step));
+
+                ensureEnoughCards();
+
+                // Сброс позиции без анимации (важно при resize)
+                track.style.transition = "none";
+                track.style.transform = "translateX(0px)";
+                track.getBoundingClientRect(); // reflow
+                track.style.transition = "transform .45s ease";
+            }
+
+            function stop() {
+                if (auto) clearInterval(auto);
+                auto = null;
+            }
+
+            function start() {
+                stop();
+                auto = setInterval(() => next(), 3000);
+            }
+
+            function next() {
+                if (isAnimating || !step) return;
+                dir = "next";
+                isAnimating = true;
+                track.style.transform = `translateX(-${step}px)`;
+            }
+
+            function prev() {
+                if (isAnimating || !step) return;
+                dir = "prev";
+                isAnimating = true;
+
+                // 1) мгновенно переносим последнюю карточку в начало
+                const last = track.lastElementChild;
+                track.style.transition = "none";
+                track.insertBefore(last, track.firstElementChild);
+
+                // 2) ставим ленту в позицию -step без анимации
+                track.style.transform = `translateX(-${step}px)`;
+                track.getBoundingClientRect(); // reflow
+
+                // 3) анимируем обратно в 0
+                track.style.transition = "transform .45s ease";
+                track.style.transform = "translateX(0px)";
+            }
+
+            track.addEventListener("transitionend", (e) => {
+                if (e.propertyName !== "transform") return;
+
+                // После движения вправо/влево делаем “карусель” через перестановку DOM
+                if (dir === "next") {
+                    track.style.transition = "none";
+                    track.appendChild(track.firstElementChild);
+                    track.style.transform = "translateX(0px)";
+                    track.getBoundingClientRect(); // reflow
+                    track.style.transition = "transform .45s ease";
+                }
+
+                isAnimating = false;
+            });
+
+            btnRight?.addEventListener("click", () => {
+                stop();
+                next();
+                start();
+            });
+
+            btnLeft?.addEventListener("click", () => {
+                stop();
+                prev();
+                start();
+            });
+
+            windowEl?.addEventListener("mouseenter", stop);
+            windowEl?.addEventListener("mouseleave", start);
+
+            // Инициализация после загрузки ресурсов + при ресайзе
+            window.addEventListener("load", () => {
+                recalc();
+                start();
+            });
+            window.addEventListener("resize", recalc);
+        });
+    </script>
+
+
+    <script>
+
+        const routePoints = {
+            "Усть-Каменогорск": [49.958791, 82.615825],
+            "Семей": [50.41, 80.23],
+            "Риддер": [50.33, 83.50],
+            "Катон": [49.17, 85.59],
+            "Зайсан": [47.97, 84.117],
+            "Маркаколь": [48.74, 85.74],
+            "Бухтарминское водохранилище": [49.0113, 83.85],
+            "Ледник Белуха": [49.8070585, 86.5899105],
+            "Алтай (Зыряновск)": [48.8315, 84.6068],
+            "Серебрянск": [49.6819, 83.2847],
+            "Шемонаиха": [50.6297, 81.9065],
+            "Глубокое": [50.1450, 82.3110]
+        };
+
+        const MAX_POINTS = 6; // всего точек в маршруте: старт + остановки + финиш
+
+        const selectStart = document.getElementById("pointStart");
+        const selectEnd = document.getElementById("pointEnd");
+        const selectAdd = document.getElementById("pointAdd");
+        const listEl = document.getElementById("stopsList");
+        const infoBox = document.getElementById("routeInfo");
+
+        const btnBuild = document.getElementById("routeBuild");
+        const btnSwap = document.getElementById("routeSwap");
+        const btnClear = document.getElementById("routeClear");
+        const btnAddStop = document.getElementById("stopAddBtn");
+
+        const pointNames = Object.keys(routePoints);
+        pointNames.forEach(p => {
+            selectStart.add(new Option(p, p));
+            selectEnd.add(new Option(p, p));
+            selectAdd.add(new Option(p, p));
+        });
+
+        const map = L.map("map").setView([49.97, 82.63], 7);
+
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 18
+        }).addTo(map);
+
+        const router = L.Routing.control({
+            waypoints: [],
+            addWaypoints: false,
+            draggableWaypoints: false,
+            fitSelectedRoutes: true,
+            show: false,
+            lineOptions: {
+                styles: [{ color: "#2f7f6f", weight: 6, opacity: 0.9 }]
+            }
+        }).addTo(map);
+
+        router.on("routesfound", function (e) {
+            const route = e.routes[0];
+            const km = (route.summary.totalDistance / 1000).toFixed(1);
+            const min = Math.round(route.summary.totalTime / 60);
+
+            infoBox.style.display = "block";
+            infoBox.innerHTML = `
+                                Расстояние: <b>${km} км</b><br>
+                                Время в пути: <b>${min} мин</b>
+                            `;
+        });
+
+        // ===== multi-stop логика =====
+        const stops = []; // массив названий промежуточных точек
+
+        function currentRouteKeys() {
+            const start = selectStart.value;
+            const end = selectEnd.value;
+            const keys = [];
+            if (start) keys.push(start);
+            stops.forEach(s => keys.push(s));
+            if (end) keys.push(end);
+            return keys;
+        }
+
+        function totalPointsCountIfAdded(candidate) {
+            const base = currentRouteKeys();
+            if (candidate) base.splice(1 + stops.length, 0, candidate);
+            // Убираем пустые
+            return base.filter(Boolean).length;
+        }
+
+        function renderStops() {
+            if (!listEl) return;
+            listEl.innerHTML = "";
+
+            if (stops.length === 0) {
+                const li = document.createElement("li");
+                li.className = "stop-item empty";
+                li.textContent = "Остановок пока нет";
+                listEl.appendChild(li);
+                return;
+            }
+
+            stops.forEach((name, idx) => {
+                const li = document.createElement("li");
+                li.className = "stop-item";
+
+                const title = document.createElement("span");
+                title.className = "stop-name";
+                title.textContent = `${idx + 1}. ${name}`;
+
+                const actions = document.createElement("div");
+                actions.className = "stop-actions";
+
+                const up = document.createElement("button");
+                up.type = "button";
+                up.className = "mini-btn";
+                up.textContent = "↑";
+                up.disabled = idx === 0;
+                up.addEventListener("click", () => moveStop(idx, -1));
+
+                const down = document.createElement("button");
+                down.type = "button";
+                down.className = "mini-btn";
+                down.textContent = "↓";
+                down.disabled = idx === stops.length - 1;
+                down.addEventListener("click", () => moveStop(idx, 1));
+
+                const del = document.createElement("button");
+                del.type = "button";
+                del.className = "mini-btn danger";
+                del.textContent = "✕";
+                del.addEventListener("click", () => removeStop(idx));
+
+                actions.appendChild(up);
+                actions.appendChild(down);
+                actions.appendChild(del);
+
+                li.appendChild(title);
+                li.appendChild(actions);
+                listEl.appendChild(li);
+            });
+        }
+
+        function moveStop(index, dir) {
+            const ni = index + dir;
+            if (ni < 0 || ni >= stops.length) return;
+            const tmp = stops[index];
+            stops[index] = stops[ni];
+            stops[ni] = tmp;
+            renderStops();
+            // если маршрут уже построен — обновим линию
+            if (selectStart.value && selectEnd.value && router.getWaypoints().length) buildRoute();
+        }
+
+        function removeStop(index) {
+            stops.splice(index, 1);
+            renderStops();
+            if (selectStart.value && selectEnd.value && router.getWaypoints().length) buildRoute();
+        }
+
+        function addStop() {
+            const candidate = selectAdd.value;
+            if (!candidate) return;
+
+            const start = selectStart.value;
+            const end = selectEnd.value;
+
+            // нельзя добавлять старт/финиш как остановку
+            if (candidate === start || candidate === end) {
+                alert("Эта точка уже выбрана как старт/финиш.");
+                return;
+            }
+
+            // без дублей
+            if (stops.includes(candidate)) {
+                alert("Эта остановка уже добавлена.");
+                return;
+            }
+
+            const total = (start ? 1 : 0) + (end ? 1 : 0) + (stops.length + 1);
+            if (total > MAX_POINTS) {
+                alert(`Максимум ${MAX_POINTS} точек в маршруте. Уберите лишнюю остановку.`);
+                return;
+            }
+
+            stops.push(candidate);
+            selectAdd.value = "";
+            renderStops();
+        }
+
+        function buildRoute() {
+            const start = selectStart.value;
+            const end = selectEnd.value;
+
+            if (!start || !end) {
+                alert("Выбери старт и финиш.");
+                return;
+            }
+
+            const keys = [start, ...stops, end];
+
+            // защита от дублей в целом
+            const uniq = new Set(keys);
+            if (uniq.size !== keys.length) {
+                alert("Маршрут содержит повторяющиеся точки. Убери дубли.");
+                return;
+            }
+
+            if (keys.length < 2) {
+                alert("Нужно минимум 2 точки.");
+                return;
+            }
+
+            if (keys.length > MAX_POINTS) {
+                alert(`Максимум ${MAX_POINTS} точек в маршруте.`);
+                return;
+            }
+
+            router.setWaypoints(keys.map(k => L.latLng(...routePoints[k])));
+
+            // если карта была инициализирована до точных размеров блока
+            setTimeout(() => map.invalidateSize(), 150);
+        }
+
+        function swapRoute() {
+            const a = selectStart.value;
+            const b = selectEnd.value;
+            selectStart.value = b;
+            selectEnd.value = a;
+            stops.reverse();
+            renderStops();
+
+            if (selectStart.value && selectEnd.value && router.getWaypoints().length) buildRoute();
+        }
+
+        function clearRoute() {
+            stops.length = 0;
+            renderStops();
+            router.setWaypoints([]);
+            infoBox.style.display = "none";
+            infoBox.innerHTML = "";
+        }
+
+        // ===== events =====
+        btnAddStop?.addEventListener("click", addStop);
+        btnBuild?.addEventListener("click", buildRoute);
+        btnSwap?.addEventListener("click", swapRoute);
+        btnClear?.addEventListener("click", clearRoute);
+
+        renderStops();
+    </script>
+
+    <script>
+        // ===== ТОЛЬКО ВКО =====
+        // Координаты городов/районов (можешь удалить/добавить свои пункты).
+        const VKO_REGIONS = [
+            { key: "oskemen", name: "Өскемен / Усть-Каменогорск", lat: 49.9589, lon: 82.6058 },
+            { key: "ridder", name: "Риддер", lat: 50.3441, lon: 83.5129 },
+            { key: "altai", name: "Алтай (Зыряновск)", lat: 48.8315, lon: 84.6068 },
+            { key: "serebryansk", name: "Серебрянск", lat: 49.6819, lon: 83.2847 },
+            { key: "zaysan", name: "Зайсан", lat: 47.4666, lon: 84.8714 },
+            { key: "kurchum", name: "Курчум", lat: 48.5660, lon: 83.6615 },
+            { key: "katon", name: "Катон-Карагай", lat: 49.1753, lon: 85.6032 },
+            { key: "markakol", name: "Маркаколь", lat: 48.7411, lon: 85.7777 },
+            { key: "shemonaikha", name: "Шемонаиха", lat: 50.6297, lon: 81.9065 },
+            { key: "glubokoe", name: "Глубокое", lat: 50.1450, lon: 82.3110 }
+        ];
+
+        const $region = document.getElementById("wxRegion");
+        const $meta = document.getElementById("wxMeta");
+        const $panel = document.getElementById("wxPanel");
+        const $collapse = document.getElementById("wxCollapse");
+        const $chev = document.querySelector(".wx-chev");
+        const $reload = document.getElementById("wxReload");
+        const $days = document.getElementById("wxDays");
+
+        const $uvText = document.getElementById("uvText");
+        const $uvSub = document.getElementById("uvSub");
+        const $humText = document.getElementById("humText");
+        const $feelText = document.getElementById("feelText");
+        const $feelSub = document.getElementById("feelSub");
+        const $windText = document.getElementById("windText");
+        const $windSub = document.getElementById("windSub");
+        const $windArrow = document.getElementById("windArrow");
+        const $sunset = document.getElementById("sunsetText");
+        const $sunSub = document.getElementById("sunSub");
+        const $press = document.getElementById("pressText");
+
+        // ===== заполнение select =====
+        VKO_REGIONS.forEach(r => {
+            const o = document.createElement("option");
+            o.value = r.key;
+            o.textContent = r.name;
+            $region.appendChild(o);
+        });
+
+        const saved = localStorage.getItem("vko_region");
+        if (saved && VKO_REGIONS.some(x => x.key === saved)) $region.value = saved;
+
+        // ===== collapse =====
+        function setCollapsed(v) {
+            $panel.classList.toggle("is-collapsed", v);
+            $collapse.setAttribute("aria-expanded", String(!v));
+            if ($chev) $chev.style.transform = v ? "rotate(225deg)" : "rotate(45deg)";
+        }
+        $collapse.addEventListener("click", () => setCollapsed(!$panel.classList.contains("is-collapsed")));
+        setCollapsed(false);
+
+        function clamp01(x) { return Math.max(0, Math.min(1, x)); }
+
+        // ===== управление полудугой =====
+        function setGauge(cardKey, p) {
+            const cardEl = document.querySelector(`.wx-card[data-card="${cardKey}"]`);
+            if (!cardEl) return;
+
+            const prog = cardEl.querySelector(".wx-prog");
+            const dot = cardEl.querySelector(".wx-dot");
+            if (!prog || !dot) return;
+
+            const L = 157; // соответствует CSS stroke-dasharray
+            const off = L * (1 - clamp01(p));
+            prog.style.strokeDashoffset = String(off);
+
+            const deg = 180 * clamp01(p);
+            dot.style.transform = `rotate(${deg}deg)`;
+        }
+
+        function fmtTime(iso) {
+            const d = new Date(iso);
+            return d.toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit" });
+        }
+
+        function wmoIcon(code) {
+            code = Number(code);
+            if (code === 0) return "☀️";
+            if ([1, 2].includes(code)) return "🌤️";
+            if (code === 3) return "☁️";
+            if ([45, 48].includes(code)) return "🌫️";
+            if ([51, 53, 55, 56, 57].includes(code)) return "🌦️";
+            if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return "🌧️";
+            if ([71, 73, 75, 77, 85, 86].includes(code)) return "🌨️";
+            if ([95, 96, 99].includes(code)) return "⛈️";
+            return "🌥️";
+        }
+
+        function uvLabel(uv) {
+            if (uv < 3) return "Низкий";
+            if (uv < 6) return "Средний";
+            if (uv < 8) return "Высокий";
+            return "Очень высокий";
+        }
+
+        function dayLabel(isoDate) {
+            const d = new Date(isoDate + "T00:00:00");
+            return d.toLocaleDateString("ru-RU", { weekday: "short", day: "2-digit", month: "2-digit" });
+        }
+
+        async function loadRegion(key) {
+            const r = VKO_REGIONS.find(x => x.key === key) || VKO_REGIONS[0];
+            localStorage.setItem("vko_region", r.key);
+
+            $meta.textContent = `Загрузка: ${r.name}…`;
+            $days.innerHTML = "";
+
+            // Open-Meteo (без ключа): current + hourly(uv) + daily(7 дней)
+            const url =
+                `https://api.open-meteo.com/v1/forecast` +
+                `?latitude=${encodeURIComponent(r.lat)}` +
+                `&longitude=${encodeURIComponent(r.lon)}` +
+                `&current=temperature_2m,apparent_temperature,relativehumidity_2m,wind_speed_10m,wind_direction_10m,pressure_msl,weather_code` +
+                `&hourly=uv_index` +
+                `&daily=temperature_2m_max,temperature_2m_min,weather_code,sunrise,sunset,uv_index_max` +
+                `&timezone=auto&forecast_days=7`;
+
+            try {
+                const res = await fetch(url);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const data = await res.json();
+
+                const cur = data.current || {};
+                const units = data.current_units || {};
+                const daily = data.daily || {};
+                const hourly = data.hourly || {};
+
+                // ===== UV (текущий час) =====
+                let uv = null;
+                if (hourly.time && hourly.uv_index && cur.time) {
+                    const idx = hourly.time.indexOf(cur.time);
+                    if (idx >= 0) uv = Number(hourly.uv_index[idx]);
+                }
+                if (uv === null && Array.isArray(daily.uv_index_max)) uv = Number(daily.uv_index_max[0]);
+
+                // ===== значения =====
+                const temp = Number(cur.temperature_2m);
+                const feel = Number(cur.apparent_temperature);
+                const hum = Number(cur.relativehumidity_2m);
+                const wind = Number(cur.wind_speed_10m);
+                const wdir = Number(cur.wind_direction_10m);
+                const press = Number(cur.pressure_msl); // hPa ~ mbar
+                const wcode = Number(cur.weather_code);
+
+                // верхняя строка
+                const tText = Number.isFinite(temp) ? `${Math.round(temp)}${units.temperature_2m || "°C"}` : "—";
+                $meta.textContent = `${r.name} • Сейчас ${tText} ${wmoIcon(wcode)}`;
+
+                // 1) UV (шкала 0..11)
+                if (Number.isFinite(uv)) {
+                    $uvText.textContent = uv.toFixed(0);
+                    $uvSub.textContent = uvLabel(uv);
+                    setGauge("uv", uv / 11);
+                } else {
+                    $uvText.textContent = "—";
+                    $uvSub.textContent = "—";
+                    setGauge("uv", 0);
+                }
+
+                // 2) Humidity
+                if (Number.isFinite(hum)) {
+                    $humText.textContent = `${Math.round(hum)}%`;
+                    setGauge("hum", hum / 100);
+                } else {
+                    $humText.textContent = "—";
+                    setGauge("hum", 0);
+                }
+
+                // 3) Feels like (шкала -40..+40)
+                if (Number.isFinite(feel)) {
+                    $feelText.textContent = `${Math.round(feel)}${units.apparent_temperature || "°C"}`;
+                    $feelSub.textContent = "апп. температура";
+                    setGauge("feel", (feel + 40) / 80);
+                } else {
+                    $feelText.textContent = "—";
+                    $feelSub.textContent = "—";
+                    setGauge("feel", 0);
+                }
+
+                // 4) Wind + compass
+                if (Number.isFinite(wind)) {
+                    $windText.textContent = `${Math.round(wind)} ${units.wind_speed_10m || "km/h"}`;
+                    $windSub.textContent = Number.isFinite(wdir) ? `направление: ${Math.round(wdir)}°` : "—";
+                    $windArrow.style.transform = Number.isFinite(wdir) ? `rotate(${Math.round(wdir)}deg)` : "rotate(0deg)";
+                } else {
+                    $windText.textContent = "—";
+                    $windSub.textContent = "—";
+                    $windArrow.style.transform = "rotate(0deg)";
+                }
+
+                // 5) Sunset today
+                if (Array.isArray(daily.sunset) && daily.sunset[0]) {
+                    $sunset.textContent = fmtTime(daily.sunset[0]);
+                    const rise = (daily.sunrise && daily.sunrise[0]) ? fmtTime(daily.sunrise[0]) : "—";
+                    $sunSub.textContent = `восход: ${rise}`;
+                } else {
+                    $sunset.textContent = "—";
+                    $sunSub.textContent = "—";
+                }
+
+                // 6) Pressure (примерный диапазон 980..1050)
+                if (Number.isFinite(press)) {
+                    $press.textContent = `${Math.round(press)}`;
+                    setGauge("press", (press - 980) / (1050 - 980));
+                } else {
+                    $press.textContent = "—";
+                    setGauge("press", 0);
+                }
+
+                // ===== Прогноз 7 дней =====
+                const t = daily.time || [];
+                const tmax = daily.temperature_2m_max || [];
+                const tmin = daily.temperature_2m_min || [];
+                const dc = daily.weather_code || [];
+
+                for (let i = 0; i < Math.min(7, t.length); i++) {
+                    const el = document.createElement("div");
+                    el.className = "wx-day";
+                    const hi = Math.round(Number(tmax[i]));
+                    const lo = Math.round(Number(tmin[i]));
+                    el.innerHTML = `
+                                                                      <div class="d1">${dayLabel(t[i])}</div>
+                                                                      <div class="d2">${lo}° / ${hi}°</div>
+                                                                      <div class="d3">${wmoIcon(dc[i])}</div>
+                                                                    `;
+                    $days.appendChild(el);
+                }
+
+            } catch (err) {
+                $meta.textContent = `Ошибка загрузки: ${String(err.message || err)}`;
+            }
+        }
+
+        $region.addEventListener("change", () => loadRegion($region.value));
+        $reload.addEventListener("click", () => loadRegion($region.value));
+
+        // старт
+        loadRegion($region.value || VKO_REGIONS[0].key);
+    </script>
+
+
+    <script>
+        (() => {
+            const THEME_KEY = "theme";
+            const btn = document.getElementById("themeToggle");
+            const heroMap = document.getElementById("heroMap");
+
+            const MAP_GREEN = "map.png";
+            const MAP_DARK = "map-dark.png";
+
+            function applyThemeFromStorage() {
+                const v = localStorage.getItem(THEME_KEY);
+                const isGreen = (v === "green");
+                document.body.classList.toggle("green", isGreen);
+            }
+
+            function setTheme(isGreen) {
+                document.body.classList.toggle("green", isGreen);
+                localStorage.setItem(THEME_KEY, isGreen ? "green" : "dark");
+            }
+
+            function updateHeroMap() {
+                if (!heroMap) return;
+                const isGreen = document.body.classList.contains("green");
+                heroMap.src = isGreen ? MAP_GREEN : MAP_DARK;
+            }
+
+            // 1) restore theme + map on first load
+            applyThemeFromStorage();
+            updateHeroMap();
+
+            // 2) toggle
+            btn?.addEventListener("click", () => {
+                const isGreen = !document.body.classList.contains("green");
+                setTheme(isGreen);
+                // map will be updated by observer, но вызов лишним не будет
+                updateHeroMap();
+            });
+
+            // 3) если тема меняется другим кодом
+            const obs = new MutationObserver(updateHeroMap);
+            obs.observe(document.body, { attributes: true, attributeFilter: ["class"] });
+        })();
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const root = document.getElementById('langSwitch');
+            if (!root) return;
+
+            const btn = root.querySelector('.lang-btn');
+
+            function openMenu() {
+                root.classList.add('is-open');
+                btn.setAttribute('aria-expanded', 'true');
+            }
+
+            function closeMenu() {
+                root.classList.remove('is-open');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const opened = root.classList.contains('is-open');
+                if (opened) closeMenu();
+                else openMenu();
+            });
+
+            // клик вне — закрыть
+            document.addEventListener('click', (e) => {
+                if (!root.contains(e.target)) closeMenu();
+            });
+
+            // ESC — закрыть
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeMenu();
+            });
+        });
+    </script>
+
+
+    <script>
+        (() => {
+            const STORAGE_KEY = "vko_comments_v1";
+            const MAX_ITEMS = 30;
+
+            function escapeText(s) {
+                // We will only ever write via textContent, but keep this as a safe helper.
+                return String(s ?? "");
+            }
+
+            function fmtDate(ts) {
+                try {
+                    const d = new Date(ts);
+                    return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "2-digit" });
+                } catch { return ""; }
+            }
+
+            function loadComments() {
+                try {
+                    const raw = localStorage.getItem(STORAGE_KEY);
+                    const data = raw ? JSON.parse(raw) : [];
+                    return Array.isArray(data) ? data : [];
+                } catch {
+                    return [];
+                }
+            }
+
+            function saveComments(items) {
+                const trimmed = items.slice(0, MAX_ITEMS);
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(trimmed));
+                return trimmed;
+            }
+
+            function stars(n) {
+                const x = Math.max(1, Math.min(5, Number(n) || 5));
+                return "★★★★★".slice(0, x) + "☆☆☆☆☆".slice(0, 5 - x);
+            }
+
+            function render(items) {
+                const list = document.getElementById("commentsList");
+                const total = document.getElementById("commentsTotal");
+                if (!list) return;
+
+                list.innerHTML = "";
+                total && (total.textContent = String(items.length));
+
+                if (!items.length) {
+                    const empty = document.createElement("div");
+                    empty.className = "comment-empty";
+                    empty.textContent = "Пока нет отзывов. Будьте первым 🙂";
+                    list.appendChild(empty);
+                    return;
+                }
+
+                items.forEach((it) => {
+                    const card = document.createElement("article");
+                    card.className = "comment-item";
+
+                    const head = document.createElement("div");
+                    head.className = "comment-item-head";
+
+                    const name = document.createElement("div");
+                    name.className = "comment-item-name";
+                    name.textContent = escapeText(it.name);
+
+                    const meta = document.createElement("div");
+                    meta.className = "comment-item-meta";
+
+                    const rating = document.createElement("span");
+                    rating.className = "comment-item-rating";
+                    rating.textContent = stars(it.rating);
+
+                    const date = document.createElement("span");
+                    date.className = "comment-item-date";
+                    date.textContent = fmtDate(it.createdAt);
+
+                    meta.appendChild(rating);
+                    meta.appendChild(date);
+
+                    head.appendChild(name);
+                    head.appendChild(meta);
+
+                    const body = document.createElement("p");
+                    body.className = "comment-item-text";
+                    body.textContent = escapeText(it.text);
+
+                    card.appendChild(head);
+                    card.appendChild(body);
+                    list.appendChild(card);
+                });
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const form = document.getElementById("commentForm");
+                const nameEl = document.getElementById("commentName");
+                const ratingEl = document.getElementById("commentRating");
+                const textEl = document.getElementById("commentText");
+                const countEl = document.getElementById("commentCount");
+                const clearBtn = document.getElementById("commentsClearBtn");
+
+                let items = loadComments();
+                render(items);
+
+                const updateCount = () => {
+                    if (!countEl || !textEl) return;
+                    countEl.textContent = String((textEl.value || "").length);
+                };
+                updateCount();
+                textEl?.addEventListener("input", updateCount);
+
+                form?.addEventListener("submit", (e) => {
+                    e.preventDefault();
+
+                    const name = (nameEl?.value || "").trim();
+                    const text = (textEl?.value || "").trim();
+                    const rating = Number(ratingEl?.value || 5);
+
+                    if (!name || !text) return;
+
+                    const newItem = {
+                        id: crypto?.randomUUID ? crypto.randomUUID() : String(Date.now() + Math.random()),
+                        name: name.slice(0, 40),
+                        text: text.slice(0, 400),
+                        rating: Math.max(1, Math.min(5, rating)),
+                        createdAt: Date.now()
+                    };
+
+                    items = [newItem, ...items];
+                    items = saveComments(items);
+
+                    // reset
+                    form.reset();
+                    updateCount();
+                    render(items);
+                });
+
+                clearBtn?.addEventListener("click", () => {
+                    localStorage.removeItem(STORAGE_KEY);
+                    items = [];
+                    render(items);
+                    updateCount();
+                });
+            });
+        })();
+    </script>
+
+</body>
+</html>

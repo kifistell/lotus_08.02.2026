@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Профиль путешественника • ВКО</title>
+
+  <!-- Основные стили сайта (темы + базовые компоненты) -->
+  <link rel="stylesheet" href="quide_1.css" />
+
+  <link rel="stylesheet" href="profile_1_v2.css" />
+
+</head>
+
+<body>
+  <!-- Top bar -->
+  <div class="pp-topbar">
+    <div class="container">
+      <div class="pp-brand">
+        <!-- Можно заменить на ваш lotus.png. Если файла нет — оставьте как есть. -->
+        <img class="pp-logo" src="lotus.png" alt="Логотип" onerror="this.style.display='none'" />
+        <div>
+          <h1>Профиль путешественника</h1>
+          <p>Восточный Казахстан • персональные рекомендации</p>
+        </div>
+      </div>
+
+      <div class="pp-nav">
+        <a class="pp-link" href="index_personalized.multistop.html" title="Вернуться на главную">← На главную</a>
+        <button class="profile-btn" id="themeToggle" type="button">Тема</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="pp-screen">
+    <div class="pp-grid">
+      <!-- LEFT: Builder -->
+      <section class="pp-card" aria-labelledby="ppMainTitle">
+        <div class="pp-card-head">
+          <div>
+            <div class="pp-kicker">мини-анкетa</div>
+            <h2 class="pp-title" id="ppMainTitle">Настройте профиль под ваш стиль</h2>
+            <p class="pp-sub">
+              Выберите цель, уровень, длительность, транспорт и интересы. Эти данные сохраняются в
+              <strong>localStorage.userProfile</strong> и будут использоваться на главной странице для рекомендаций.
+            </p>
+          </div>
+
+          <div class="pp-actions">
+            <button class="profile-btn" id="ppSave" type="button">Сохранить</button>
+            <button class="profile-btn ghost" id="ppReset" type="button">Сброс</button>
+          </div>
+        </div>
+
+        <div class="pp-body">
+          <!-- Contact / profile details -->
+          <div class="pp-section" aria-labelledby="ppUser">
+            <h3 id="ppUser">0) Данные профиля <span class="pp-kicker" style="margin:0; opacity:.8;">(необязательно)</span></h3>
+            <p class="pp-hint">Имя и контакты сохраняются вместе с вашим выбором и могут использоваться для персонализации/обратной связи.</p>
+
+            <div class="pp-form" role="group" aria-label="Контактные данные">
+              <div class="pp-field">
+                <label for="ppName">Имя</label>
+                <input class="pp-input" id="ppName" type="text" placeholder="Например: Кирилл" autocomplete="name" />
+              </div>
+
+              <div class="pp-field">
+                <label for="ppPhone">Телефон</label>
+                <input class="pp-input" id="ppPhone" type="tel" placeholder="+7 ..." autocomplete="tel" inputmode="tel" />
+              </div>
+
+              <div class="pp-field">
+                <label for="ppEmail">Почта</label>
+                <input class="pp-input" id="ppEmail" type="email" placeholder="name@example.com" autocomplete="email" inputmode="email" />
+              </div>
+
+              <div class="pp-field">
+                <label for="ppTelegram">Telegram</label>
+                <input class="pp-input" id="ppTelegram" type="text" placeholder="@username (по желанию)" autocomplete="off" />
+              </div>
+
+              <div class="pp-field full">
+                <label for="ppNotes">Примечание</label>
+                <textarea class="pp-textarea" id="ppNotes" placeholder="Например: хочу маршруты без сложных подъёмов, интересны рассветы и озёра"></textarea>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Goal -->
+          <div class="pp-section" aria-labelledby="ppGoal">
+            <h3 id="ppGoal">1) Цель поездки <span class="pp-kicker" style="margin:0; opacity:.8;">(выберите одну)</span></h3>
+            <p class="pp-hint">Это помогает понять, что для вас важнее: спокойствие, семья, приключение, фото или рыбалка.</p>
+
+            <div class="pp-options" role="radiogroup" aria-label="Цель поездки">
+              <button class="pp-opt" type="button" data-group="goal" data-value="relax" role="radio" aria-checked="false">
+                <div class="pp-ico">🧘</div>
+                <div><strong>Relax</strong><span>Тишина, природа, комфорт</span></div>
+              </button>
+              <button class="pp-opt" type="button" data-group="goal" data-value="family" role="radio" aria-checked="false">
+                <div class="pp-ico">👨‍👩‍👧‍👦</div>
+                <div><strong>Family</strong><span>Безопасно, удобно, без перегруза</span></div>
+              </button>
+              <button class="pp-opt" type="button" data-group="goal" data-value="trekking" role="radio" aria-checked="false">
+                <div class="pp-ico">🥾</div>
+                <div><strong>Trekking</strong><span>Тропы, набор высоты, активность</span></div>
+              </button>
+              <button class="pp-opt" type="button" data-group="goal" data-value="photo" role="radio" aria-checked="false">
+                <div class="pp-ico">📸</div>
+                <div><strong>Photo</strong><span>Видовые точки, рассветы, кадры</span></div>
+              </button>
+              <button class="pp-opt" type="button" data-group="goal" data-value="fishing" role="radio" aria-checked="false">
+                <div class="pp-ico">🎣</div>
+                <div><strong>Fishing</strong><span>Водоёмы, места для рыбалки</span></div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Level -->
+          <div class="pp-section" aria-labelledby="ppLevel">
+            <h3 id="ppLevel">2) Уровень <span class="pp-kicker" style="margin:0; opacity:.8;">(выберите один)</span></h3>
+            <p class="pp-hint">Влияет на то, какие маршруты показывать выше: «безопасно для новичка» или «сложнее, но эффектно».</p>
+
+            <div class="pp-options cols-2" role="radiogroup" aria-label="Уровень">
+              <button class="pp-opt" type="button" data-group="level" data-value="beginner" role="radio" aria-checked="false">
+                <div class="pp-ico">🙂</div>
+                <div><strong>Beginner</strong><span>Лёгкие маршруты, минимум риска</span></div>
+              </button>
+              <button class="pp-opt" type="button" data-group="level" data-value="medium" role="radio" aria-checked="false">
+                <div class="pp-ico">💪</div>
+                <div><strong>Medium</strong><span>Умеренная нагрузка, тропы</span></div>
+              </button>
+              <button class="pp-opt" type="button" data-group="level" data-value="advanced" role="radio" aria-checked="false">
+                <div class="pp-ico">🧗</div>
+                <div><strong>Advanced</strong><span>Сложнее, но максимально эффектно</span></div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Duration -->
+          <div class="pp-section" aria-labelledby="ppDuration">
+            <h3 id="ppDuration">3) Длительность поездки <span class="pp-kicker" style="margin:0; opacity:.8;">(выберите одну)</span></h3>
+            <p class="pp-hint">Чтобы поднимать вверх те локации, которые реально успеть за ваше время.</p>
+
+            <div class="pp-options cols-2" role="radiogroup" aria-label="Длительность поездки">
+              <button class="pp-opt" type="button" data-group="duration" data-value="1day" role="radio" aria-checked="false">
+                <div class="pp-ico">🕒</div>
+                <div><strong>1 day</strong><span>Съездить и вернуться в тот же день</span></div>
+              </button>
+              <button class="pp-opt" type="button" data-group="duration" data-value="weekend" role="radio" aria-checked="false">
+                <div class="pp-ico">📅</div>
+                <div><strong>Weekend</strong><span>Сб/Вс, короткий выезд</span></div>
+              </button>
+              <button class="pp-opt" type="button" data-group="duration" data-value="3to5" role="radio" aria-checked="false">
+                <div class="pp-ico">🧳</div>
+                <div><strong>3–5 days</strong><span>Полноценная поездка</span></div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Transport -->
+          <div class="pp-section" aria-labelledby="ppTransport">
+            <h3 id="ppTransport">4) Транспорт <span class="pp-kicker" style="margin:0; opacity:.8;">(выберите один)</span></h3>
+            <p class="pp-hint">Покажем то, куда реально добраться вашим способом.</p>
+
+            <div class="pp-options cols-2" role="radiogroup" aria-label="Транспорт">
+              <button class="pp-opt" type="button" data-group="transport" data-value="car" role="radio" aria-checked="false">
+                <div class="pp-ico">🚗</div>
+                <div><strong>Car</strong><span>Свободная логистика</span></div>
+              </button>
+              <button class="pp-opt" type="button" data-group="transport" data-value="public" role="radio" aria-checked="false">
+                <div class="pp-ico">🚌</div>
+                <div><strong>Public</strong><span>Автобус/поезд + пешком</span></div>
+              </button>
+              <button class="pp-opt" type="button" data-group="transport" data-value="tour" role="radio" aria-checked="false">
+                <div class="pp-ico">🧑‍🏫</div>
+                <div><strong>Tour</strong><span>С гидом / организованный тур</span></div>
+              </button>
+            </div>
+          </div>
+
+          <!-- Interests -->
+          <div class="pp-section" aria-labelledby="ppInterests">
+            <h3 id="ppInterests">5) Интересы <span class="pp-kicker" style="margin:0; opacity:.8;">(можно несколько)</span></h3>
+            <p class="pp-hint">Чем больше совпадений по интересам — тем выше место в рекомендациях.</p>
+
+            <div class="pp-interests" aria-label="Интересы">
+              <button class="pp-interest" type="button" data-interest="lakes">🏞️ Озёра</button>
+              <button class="pp-interest" type="button" data-interest="mountains">⛰️ Горы</button>
+              <button class="pp-interest" type="button" data-interest="waterfalls">💦 Водопады</button>
+              <button class="pp-interest" type="button" data-interest="canyons">🪨 Каньоны</button>
+              <button class="pp-interest" type="button" data-interest="forests">🌲 Леса/тайга</button>
+              <button class="pp-interest" type="button" data-interest="rivers">🌊 Реки</button>
+              <button class="pp-interest" type="button" data-interest="plateaus">🗻 Плато</button>
+              <button class="pp-interest" type="button" data-interest="steppes">🌾 Степи/луга</button>
+              <button class="pp-interest" type="button" data-interest="glaciers">❄️ Ледники</button>
+            </div>
+
+            <div class="pp-small">Подсказка: выберите 2–4 интереса — так рекомендации будут точнее и не будут «размыты».</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: Summary -->
+      <aside class="pp-side">
+        <section class="pp-card">
+          <div class="pp-profilebox">
+            <div class="pp-avatar" aria-hidden="true">👤</div>
+            <h3  id="ppProfileTitle" >Ваш профиль</h3>
+            <div id="ppStatus" class="pp-status warn">⚠️ Не сохранено</div>
+
+            <div id="ppSummaryChips" class="pp-chips" aria-live="polite"></div>
+
+            <p class="pp-note" id="ppSummaryText">
+              Заполните и нажмите <strong>«Сохранить»</strong>. Потом откройте главную — блок «Рекомендуем вам» начнёт подстраиваться.
+            </p>
+
+            <div style="margin-top: 14px; display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="pp-link" href="index.html">Открыть главную</a>
+              <button class="profile-btn ghost" id="ppClearOnlyInterests" type="button">Очистить интересы</button>
+            </div>
+          </div>
+        </section>
+
+       
+      </aside>
+    </div>
+  </main>
+
+  <div class="pp-toast" id="ppToast" role="status" aria-live="polite"></div>
+
+  <script>
+    // ===== Theme (same behavior as main page) =====
+    const themeBtn = document.getElementById("themeToggle");
+
+    function applyThemeFromStorage() {
+      if (localStorage.getItem("theme") === "green") {
+        document.body.classList.add("green");
+      } else {
+        document.body.classList.remove("green");
+      }
+    }
+
+    if (themeBtn) {
+      themeBtn.addEventListener("click", () => {
+        const isGreen = document.body.classList.toggle("green");
+        localStorage.setItem("theme", isGreen ? "green" : "dark");
+      });
+    }
+
+    applyThemeFromStorage();
+
+    // ===== Profile storage =====
+    const STORAGE_KEY = "userProfile";
+
+    const LABELS = {
+      goal: {
+        relax: "Relax",
+        family: "Family",
+        trekking: "Trekking",
+        photo: "Photo",
+        fishing: "Fishing",
+      },
+      level: {
+        beginner: "Beginner",
+        medium: "Medium",
+        advanced: "Advanced",
+      },
+      duration: {
+        "1day": "1 day",
+        weekend: "Weekend",
+        "3to5": "3–5 days",
+      },
+      transport: {
+        car: "Car",
+        public: "Public",
+        tour: "Tour",
+      },
+      interests: {
+        lakes: "Озёра",
+        mountains: "Горы",
+        waterfalls: "Водопады",
+        canyons: "Каньоны",
+        forests: "Леса/тайга",
+        rivers: "Реки",
+        plateaus: "Плато",
+        steppes: "Степи/луга",
+        glaciers: "Ледники",
+      }
+    };
+
+    function safeParse(json) {
+      try { return JSON.parse(json); } catch { return null; }
+    }
+
+    function getProfile() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      const p = raw ? safeParse(raw) : null;
+      if (!p || typeof p !== "object") return null;
+      return {
+        // contact / profile details (optional)
+        name: typeof p.name === "string" ? p.name : "",
+        phone: typeof p.phone === "string" ? p.phone : "",
+        email: typeof p.email === "string" ? p.email : "",
+        telegram: typeof p.telegram === "string" ? p.telegram : "",
+        notes: typeof p.notes === "string" ? p.notes : "",
+
+        // travel preferences
+        goal: p.goal || "",
+        level: p.level || "",
+        duration: p.duration || "",
+        transport: p.transport || "",
+        interests: Array.isArray(p.interests) ? p.interests : [],
+      };
+    }
+
+    function setProfile(p) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
+    }
+
+    function clearProfile() {
+      localStorage.removeItem(STORAGE_KEY);
+    }
+
+    // ===== UI state =====
+    const state = {
+      // contact / profile details
+      name: "",
+      phone: "",
+      email: "",
+      telegram: "",
+      notes: "",
+
+      // travel preferences
+      goal: "",
+      level: "",
+      duration: "",
+      transport: "",
+      interests: new Set(),
+      saved: false,
+    };
+
+    const $toast = document.getElementById("ppToast");
+    const $status = document.getElementById("ppStatus");
+    const $chips = document.getElementById("ppSummaryChips");
+    const $summary = document.getElementById("ppSummaryText");
+    const $profileTitle = document.getElementById("ppProfileTitle");
+
+
+    // Contact inputs (optional)
+    const $name = document.getElementById("ppName");
+    const $phone = document.getElementById("ppPhone");
+    const $email = document.getElementById("ppEmail");
+    const $telegram = document.getElementById("ppTelegram");
+    const $notes = document.getElementById("ppNotes");
+
+    function safeSet(el, value) {
+      if (!el) return;
+      const v = value ?? "";
+      if (el.value !== v) el.value = v;
+    }
+
+    function syncInputsFromState() {
+      safeSet($name, state.name);
+      safeSet($phone, state.phone);
+      safeSet($email, state.email);
+      safeSet($telegram, state.telegram);
+      safeSet($notes, state.notes);
+    }
+
+    function toast(msg) {
+      if (!$toast) return;
+      $toast.textContent = msg;
+      $toast.classList.add("show");
+      window.clearTimeout(toast._t);
+      toast._t = window.setTimeout(() => $toast.classList.remove("show"), 1600);
+    }
+
+    function updateSelectedUI() {
+        syncInputsFromState();
+        // Заголовок: имя вместо "Ваш профиль"
+        if ($profileTitle) {
+            const n = (state.name || "").trim();
+            $profileTitle.textContent = n ? n : "Ваш профиль";
+        }
+
+      // Single-choice groups
+      document.querySelectorAll(".pp-opt[data-group]").forEach(btn => {
+        const group = btn.getAttribute("data-group");
+        const val = btn.getAttribute("data-value");
+        const on = state[group] === val;
+        btn.classList.toggle("is-selected", on);
+        btn.setAttribute("aria-checked", on ? "true" : "false");
+      });
+
+      // Interests
+      document.querySelectorAll(".pp-interest[data-interest]").forEach(btn => {
+        const tag = btn.getAttribute("data-interest");
+        btn.classList.toggle("is-selected", state.interests.has(tag));
+        btn.setAttribute("aria-pressed", state.interests.has(tag) ? "true" : "false");
+      });
+
+      // Summary chips
+      const chips = [];
+      // Contact chips (optional)
+    
+      if (state.phone) chips.push(["Телефон", state.phone]);
+      if (state.email) chips.push(["Email", state.email]);
+      if (state.telegram) chips.push(["Telegram", state.telegram]);
+      if (state.goal) chips.push(["Цель", LABELS.goal[state.goal] || state.goal]);
+      if (state.level) chips.push(["Уровень", LABELS.level[state.level] || state.level]);
+      if (state.duration) chips.push(["Длительность", LABELS.duration[state.duration] || state.duration]);
+      if (state.transport) chips.push(["Транспорт", LABELS.transport[state.transport] || state.transport]);
+
+      const interests = Array.from(state.interests).map(k => LABELS.interests[k] || k);
+      if (interests.length) chips.push(["Интересы", interests.join(", ")]);
+
+      $chips.innerHTML = chips.length
+        ? chips.map(([k, v]) => `<span class="pp-chip"><em>${k}:</em> ${escapeHTML(v)}</span>`).join("")
+        : "<span class=\"pp-note\">Пока ничего не выбрано.</span>";
+
+      // Status
+      const complete = Boolean(state.goal && state.level && state.duration && state.transport);
+      const hasAny = Boolean(state.name || state.phone || state.email || state.telegram || state.notes || state.goal || state.level || state.duration || state.transport || state.interests.size);
+
+      if (state.saved) {
+        $status.className = "pp-status ok";
+        $status.textContent = "✅ Сохранено";
+        $summary.innerHTML = complete
+          ? "Профиль сохранён. Теперь откройте главную — рекомендации подстроятся под ваш выбор."
+          : "Профиль сохранён, но заполнен не полностью. Можно дополнить для точности.";
+      } else {
+        $status.className = "pp-status " + (hasAny ? "warn" : "warn");
+        $status.textContent = hasAny ? "⚠️ Не сохранено" : "⚠️ Не заполнено";
+        $summary.innerHTML = hasAny
+          ? "Вы выбрали параметры, но ещё не нажали <strong>«Сохранить»</strong>."
+          : "Заполните и нажмите <strong>«Сохранить»</strong>.";
+      }
+    }
+
+    function escapeHTML(str) {
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function loadIntoState(p) {
+      // contact / profile details
+      state.name = p?.name || "";
+      state.phone = p?.phone || "";
+      state.email = p?.email || "";
+      state.telegram = p?.telegram || "";
+      state.notes = p?.notes || "";
+
+      // travel preferences
+      state.goal = p?.goal || "";
+      state.level = p?.level || "";
+      state.duration = p?.duration || "";
+      state.transport = p?.transport || "";
+      state.interests = new Set(Array.isArray(p?.interests) ? p.interests : []);
+      state.saved = Boolean(p);
+
+      syncInputsFromState();
+    }
+
+    // ===== Event wiring =====
+    function wireInput(el, key) {
+      if (!el) return;
+      el.addEventListener("input", () => {
+        state[key] = el.value;
+        state.saved = false;
+        updateSelectedUI();
+      });
+    }
+
+    wireInput($name, "name");
+    wireInput($phone, "phone");
+    wireInput($email, "email");
+    wireInput($telegram, "telegram");
+    wireInput($notes, "notes");
+
+    document.querySelectorAll(".pp-opt[data-group]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const group = btn.getAttribute("data-group");
+        const val = btn.getAttribute("data-value");
+        // toggle off if clicked again
+        state[group] = (state[group] === val) ? "" : val;
+        state.saved = false;
+        updateSelectedUI();
+      });
+    });
+
+    document.querySelectorAll(".pp-interest[data-interest]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const tag = btn.getAttribute("data-interest");
+        if (state.interests.has(tag)) state.interests.delete(tag);
+        else state.interests.add(tag);
+        state.saved = false;
+        updateSelectedUI();
+      });
+    });
+
+    document.getElementById("ppSave")?.addEventListener("click", () => {
+      const profile = {
+        // contact / profile details
+        name: state.name.trim(),
+        phone: state.phone.trim(),
+        email: state.email.trim(),
+        telegram: state.telegram.trim(),
+        notes: state.notes.trim(),
+
+        // travel preferences
+        goal: state.goal,
+        level: state.level,
+        duration: state.duration,
+        transport: state.transport,
+        interests: Array.from(state.interests),
+      };
+      setProfile(profile);
+      state.saved = true;
+      updateSelectedUI();
+      toast("Профиль сохранён");
+    });
+
+    document.getElementById("ppReset")?.addEventListener("click", () => {
+      clearProfile();
+      loadIntoState(null);
+      updateSelectedUI();
+      toast("Профиль сброшен");
+    });
+
+    document.getElementById("ppClearOnlyInterests")?.addEventListener("click", () => {
+      state.interests.clear();
+      state.saved = false;
+      updateSelectedUI();
+      toast("Интересы очищены");
+    });
+
+    // Initial load
+    loadIntoState(getProfile());
+    updateSelectedUI();
+  </script>
+</body>
+</html>
